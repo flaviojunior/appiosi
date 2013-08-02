@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C81512C17AC4BCC004A7578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C81512B17AC4BCC004A7578 /* UIKit.framework */; };
+		2C81512E17AC4BCC004A7578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C81512D17AC4BCC004A7578 /* Foundation.framework */; };
+		2C81513017AC4BCC004A7578 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C81512F17AC4BCC004A7578 /* CoreGraphics.framework */; };
+		2C81513617AC4BCC004A7578 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C81513417AC4BCC004A7578 /* InfoPlist.strings */; };
+		2C81513817AC4BCC004A7578 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81513717AC4BCC004A7578 /* main.m */; };
+		2C81513C17AC4BCC004A7578 /* FFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81513B17AC4BCC004A7578 /* FFAppDelegate.m */; };
+		2C81513E17AC4BCC004A7578 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81513D17AC4BCC004A7578 /* Default.png */; };
+		2C81514017AC4BCC004A7578 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81513F17AC4BCC004A7578 /* Default@2x.png */; };
+		2C81514217AC4BCC004A7578 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C81514117AC4BCC004A7578 /* Default-568h@2x.png */; };
+		2C81514517AC4BCC004A7578 /* FFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81514417AC4BCC004A7578 /* FFViewController.m */; };
+		2C81514817AC4BCC004A7578 /* FFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C81514617AC4BCC004A7578 /* FFViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C81512817AC4BCC004A7578 /* Mercadauto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercadauto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C81512B17AC4BCC004A7578 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2C81512D17AC4BCC004A7578 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C81512F17AC4BCC004A7578 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C81513317AC4BCC004A7578 /* Mercadauto-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mercadauto-Info.plist"; sourceTree = "<group>"; };
+		2C81513517AC4BCC004A7578 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C81513717AC4BCC004A7578 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C81513917AC4BCC004A7578 /* Mercadauto-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mercadauto-Prefix.pch"; sourceTree = "<group>"; };
+		2C81513A17AC4BCC004A7578 /* FFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFAppDelegate.h; sourceTree = "<group>"; };
+		2C81513B17AC4BCC004A7578 /* FFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFAppDelegate.m; sourceTree = "<group>"; };
+		2C81513D17AC4BCC004A7578 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2C81513F17AC4BCC004A7578 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2C81514117AC4BCC004A7578 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2C81514317AC4BCC004A7578 /* FFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewController.h; sourceTree = "<group>"; };
+		2C81514417AC4BCC004A7578 /* FFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewController.m; sourceTree = "<group>"; };
+		2C81514717AC4BCC004A7578 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FFViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C81512517AC4BCC004A7578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C81512C17AC4BCC004A7578 /* UIKit.framework in Frameworks */,
+				2C81512E17AC4BCC004A7578 /* Foundation.framework in Frameworks */,
+				2C81513017AC4BCC004A7578 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C81511F17AC4BCC004A7578 = {
+			isa = PBXGroup;
+			children = (
+				2C81513117AC4BCC004A7578 /* Mercadauto */,
+				2C81512A17AC4BCC004A7578 /* Frameworks */,
+				2C81512917AC4BCC004A7578 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C81512917AC4BCC004A7578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C81512817AC4BCC004A7578 /* Mercadauto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C81512A17AC4BCC004A7578 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C81512B17AC4BCC004A7578 /* UIKit.framework */,
+				2C81512D17AC4BCC004A7578 /* Foundation.framework */,
+				2C81512F17AC4BCC004A7578 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C81513117AC4BCC004A7578 /* Mercadauto */ = {
+			isa = PBXGroup;
+			children = (
+				2C81513A17AC4BCC004A7578 /* FFAppDelegate.h */,
+				2C81513B17AC4BCC004A7578 /* FFAppDelegate.m */,
+				2C81514317AC4BCC004A7578 /* FFViewController.h */,
+				2C81514417AC4BCC004A7578 /* FFViewController.m */,
+				2C81514617AC4BCC004A7578 /* FFViewController.xib */,
+				2C81513217AC4BCC004A7578 /* Supporting Files */,
+			);
+			path = Mercadauto;
+			sourceTree = "<group>";
+		};
+		2C81513217AC4BCC004A7578 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C81513317AC4BCC004A7578 /* Mercadauto-Info.plist */,
+				2C81513417AC4BCC004A7578 /* InfoPlist.strings */,
+				2C81513717AC4BCC004A7578 /* main.m */,
+				2C81513917AC4BCC004A7578 /* Mercadauto-Prefix.pch */,
+				2C81513D17AC4BCC004A7578 /* Default.png */,
+				2C81513F17AC4BCC004A7578 /* Default@2x.png */,
+				2C81514117AC4BCC004A7578 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C81512717AC4BCC004A7578 /* Mercadauto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C81514B17AC4BCC004A7578 /* Build configuration list for PBXNativeTarget "Mercadauto" */;
+			buildPhases = (
+				2C81512417AC4BCC004A7578 /* Sources */,
+				2C81512517AC4BCC004A7578 /* Frameworks */,
+				2C81512617AC4BCC004A7578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mercadauto;
+			productName = Mercadauto;
+			productReference = 2C81512817AC4BCC004A7578 /* Mercadauto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C81512017AC4BCC004A7578 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FF;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = FF;
+			};
+			buildConfigurationList = 2C81512317AC4BCC004A7578 /* Build configuration list for PBXProject "Mercadauto" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C81511F17AC4BCC004A7578;
+			productRefGroup = 2C81512917AC4BCC004A7578 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C81512717AC4BCC004A7578 /* Mercadauto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C81512617AC4BCC004A7578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C81513617AC4BCC004A7578 /* InfoPlist.strings in Resources */,
+				2C81513E17AC4BCC004A7578 /* Default.png in Resources */,
+				2C81514017AC4BCC004A7578 /* Default@2x.png in Resources */,
+				2C81514217AC4BCC004A7578 /* Default-568h@2x.png in Resources */,
+				2C81514817AC4BCC004A7578 /* FFViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C81512417AC4BCC004A7578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C81513817AC4BCC004A7578 /* main.m in Sources */,
+				2C81513C17AC4BCC004A7578 /* FFAppDelegate.m in Sources */,
+				2C81514517AC4BCC004A7578 /* FFViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C81513417AC4BCC004A7578 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C81513517AC4BCC004A7578 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2C81514617AC4BCC004A7578 /* FFViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C81514717AC4BCC004A7578 /* en */,
+			);
+			name = FFViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C81514917AC4BCC004A7578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2C81514A17AC4BCC004A7578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C81514C17AC4BCC004A7578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mercadauto/Mercadauto-Prefix.pch";
+				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2C81514D17AC4BCC004A7578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mercadauto/Mercadauto-Prefix.pch";
+				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C81512317AC4BCC004A7578 /* Build configuration list for PBXProject "Mercadauto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C81514917AC4BCC004A7578 /* Debug */,
+				2C81514A17AC4BCC004A7578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C81514B17AC4BCC004A7578 /* Build configuration list for PBXNativeTarget "Mercadauto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C81514C17AC4BCC004A7578 /* Debug */,
+				2C81514D17AC4BCC004A7578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C81512017AC4BCC004A7578 /* Project object */;
+}
