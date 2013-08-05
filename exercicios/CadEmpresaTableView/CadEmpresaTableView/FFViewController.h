@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FFViewController : UIViewController
+@interface FFViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+    NSMutableArray *empresas;
+
+}
+@property (retain, nonatomic) IBOutlet UITableView *tabelaEmpresas;
+
 
 @end

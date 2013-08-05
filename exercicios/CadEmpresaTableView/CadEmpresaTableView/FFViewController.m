@@ -7,6 +7,7 @@
 //
 
 #import "FFViewController.h"
+#import "FFEmpresa.h"
 
 @interface FFViewController ()
 
@@ -17,7 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self carregarEmpresas];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +28,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) carregarEmpresas {
+    NSString *pListEmpresas = [[NSBundle mainBundle] pathForResource:@"Empresas" ofType:@"plist"];
+    NSDictionary *pl = [NSDictionary dictionaryWithContentsOfFile:pListEmpresas];
+    NSArray *dados = [pl objectForKey:@"empresas"];
+    
+    empresas = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary *item in dados) {
+        NSString *nome = [item objectForKey:@"nome"];
+        NSNumber *quantidade = [item objectForKey:@"quantidade"];
+        
+        FFEmpresa *e = [[FFEmpresa alloc] initWithNome:nome andQuantidade:quantidade];
+        [empresas addObject:e];
+        
+        [e release];
+    }
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return empresas.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CelulaEmpresaCacheID = @"CelulaEmpresaID";
+    UITableViewCell * cell = [self.tabelaEmpresas dequeueReusableCellWithIdentifier:CelulaEmpresaCacheID];
+    
+    if(!cell) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CelulaEmpresaCacheID] autorelease];
+    }
+
+FFEmpresa *empresa = [empresas objectAtIndex:indexPath.row];
+cell.textLabel.text = empresa.nomeEmpresa;
+
+return cell;
+}
+
+- (void)dealloc {
+    [_tabelaEmpresas release];
+    [super dealloc];
+}
 @end

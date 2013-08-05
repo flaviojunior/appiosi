@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>empresas</key>
+	<array>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 1</string>
+			<key>number</key>
+			<integer>10</integer>
+		</dict>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 2</string>
+			<key>number</key>
+			<integer>20</integer>
+		</dict>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 3</string>
+			<key>number</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 4</string>
+			<key>number</key>
+			<integer>40</integer>
+		</dict>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 5</string>
+			<key>number</key>
+			<integer>50</integer>
+		</dict>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 6</string>
+			<key>number</key>
+			<integer>60</integer>
+		</dict>
+		<dict>
+			<key>nome</key>
+			<string>Empresa 7</string>
+			<key>number</key>
+			<integer>70</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

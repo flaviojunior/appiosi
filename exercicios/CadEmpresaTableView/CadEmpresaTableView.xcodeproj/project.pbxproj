@@ -18,6 +18,8 @@
 		2C8C4FB817AD452B0002B515 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C4FB717AD452B0002B515 /* Default-568h@2x.png */; };
 		2C8C4FBB17AD452B0002B515 /* FFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C4FBA17AD452B0002B515 /* FFViewController.m */; };
 		2C8C4FBE17AD452B0002B515 /* FFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C4FBC17AD452B0002B515 /* FFViewController.xib */; };
+		2C8C4FC517AD46EC0002B515 /* Empresas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C8C4FC417AD46EC0002B515 /* Empresas.plist */; };
+		2C8C4FC817AD47B80002B515 /* FFEmpresa.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C8C4FC717AD47B80002B515 /* FFEmpresa.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		2C8C4FB917AD452B0002B515 /* FFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewController.h; sourceTree = "<group>"; };
 		2C8C4FBA17AD452B0002B515 /* FFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewController.m; sourceTree = "<group>"; };
 		2C8C4FBD17AD452B0002B515 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FFViewController.xib; sourceTree = "<group>"; };
+		2C8C4FC417AD46EC0002B515 /* Empresas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Empresas.plist; sourceTree = "<group>"; };
+		2C8C4FC617AD47B80002B515 /* FFEmpresa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFEmpresa.h; sourceTree = "<group>"; };
+		2C8C4FC717AD47B80002B515 /* FFEmpresa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFEmpresa.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,9 @@
 				2C8C4FB917AD452B0002B515 /* FFViewController.h */,
 				2C8C4FBA17AD452B0002B515 /* FFViewController.m */,
 				2C8C4FBC17AD452B0002B515 /* FFViewController.xib */,
+				2C8C4FC417AD46EC0002B515 /* Empresas.plist */,
+				2C8C4FC617AD47B80002B515 /* FFEmpresa.h */,
+				2C8C4FC717AD47B80002B515 /* FFEmpresa.m */,
 				2C8C4FA817AD452B0002B515 /* Supporting Files */,
 			);
 			path = CadEmpresaTableView;
@@ -164,6 +172,7 @@
 				2C8C4FB617AD452B0002B515 /* Default@2x.png in Resources */,
 				2C8C4FB817AD452B0002B515 /* Default-568h@2x.png in Resources */,
 				2C8C4FBE17AD452B0002B515 /* FFViewController.xib in Resources */,
+				2C8C4FC517AD46EC0002B515 /* Empresas.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +186,7 @@
 				2C8C4FAE17AD452B0002B515 /* main.m in Sources */,
 				2C8C4FB217AD452B0002B515 /* FFAppDelegate.m in Sources */,
 				2C8C4FBB17AD452B0002B515 /* FFViewController.m in Sources */,
+				2C8C4FC817AD47B80002B515 /* FFEmpresa.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

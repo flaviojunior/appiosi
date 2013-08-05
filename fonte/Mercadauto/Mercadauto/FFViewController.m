@@ -7,6 +7,7 @@
 //
 
 #import "FFViewController.h"
+#import "FFSelectAutoController.h"
 
 @interface FFViewController ()
 
@@ -26,4 +27,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnMoto:(id)sender {
+    FFSelectAutoController *ac = [[FFSelectAutoController alloc] init];
+    [self.navigationController pushViewController:ac animated:YES];
+    [ac release];
+}
+
+- (IBAction)btnCarro:(id)sender {
+}
+
+- (IBAction)btnCaminhao:(id)sender {
+}
 @end

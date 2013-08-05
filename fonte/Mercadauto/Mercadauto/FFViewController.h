@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FFViewController : UIViewController
+- (IBAction)btnMoto:(id)sender;
+- (IBAction)btnCarro:(id)sender;
+- (IBAction)btnCaminhao:(id)sender;
 
 @end

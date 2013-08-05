@@ -22,10 +22,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.viewController = [[[FFViewController alloc] initWithNibName:@"FFViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    FFViewController *viewController = [[FFViewController alloc] init];
+    UINavigationController *navController= [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
+    
+    [viewController release];
+    [navController release];
+    
     return YES;
 }
 
