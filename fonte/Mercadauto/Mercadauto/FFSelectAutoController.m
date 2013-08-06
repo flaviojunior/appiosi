@@ -28,6 +28,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIPickerView *picker = [[UIPickerView alloc]init];
+    [picker setShowsSelectionIndicator:YES];
+    
+    _cmbMarca.inputView = picker;
+    _cmbModelo.inputView = picker;
+    _cmbAno.inputView = picker;
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,5 +47,11 @@
     FFMapAutoController *mapAuto = [[FFMapAutoController alloc] init];
     [self.navigationController pushViewController:mapAuto animated:YES];
     [mapAuto release];
+}
+- (void)dealloc {
+    [_cmbMarca release];
+    [_cmbModelo release];
+    [_cmbAno release];
+    [super dealloc];
 }
 @end

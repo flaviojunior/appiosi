@@ -10,5 +10,8 @@
 
 @interface FFSelectAutoController : UIViewController
 - (IBAction)btnAnalizar:(id)sender;
+@property (retain, nonatomic) IBOutlet UITextField *cmbMarca;
+@property (retain, nonatomic) IBOutlet UITextField *cmbModelo;
+@property (retain, nonatomic) IBOutlet UITextField *cmbAno;
 
 @end

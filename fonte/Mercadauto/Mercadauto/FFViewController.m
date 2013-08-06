@@ -34,8 +34,14 @@
 }
 
 - (IBAction)btnCarro:(id)sender {
+    FFSelectAutoController *ac = [[FFSelectAutoController alloc] init];
+    [self.navigationController pushViewController:ac animated:YES];
+    [ac release];
 }
 
 - (IBAction)btnCaminhao:(id)sender {
+    FFSelectAutoController *ac = [[FFSelectAutoController alloc] init];
+    [self.navigationController pushViewController:ac animated:YES];
+    [ac release];
 }
 @end
