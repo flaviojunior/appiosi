@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Marcas0</key>
+	<array>
+		<string>Honda</string>
+		<string>Yahama</string>
+	</array>
+	<key>Modelos0</key>
+	<array>
+		<string>CB 300</string>
+		<string>CG Titan</string>
+	</array>
+	<key>Ano0</key>
+	<array>
+		<integer>2007</integer>
+		<string>2008</string>
+		<string>2009</string>
+		<string>2010</string>
+		<string>2011</string>
+		<string>2012</string>
+		<string>2013</string>
+		<string>2014</string>
+	</array>
+</dict>
+</plist>

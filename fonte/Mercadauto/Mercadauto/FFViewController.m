@@ -28,19 +28,19 @@
 }
 
 - (IBAction)btnMoto:(id)sender {
-    FFSelectAutoController *ac = [[FFSelectAutoController alloc] init];
+    FFSelectAutoController *ac = [[FFSelectAutoController alloc] initWithTipo:0];
     [self.navigationController pushViewController:ac animated:YES];
     [ac release];
 }
 
 - (IBAction)btnCarro:(id)sender {
-    FFSelectAutoController *ac = [[FFSelectAutoController alloc] init];
+    FFSelectAutoController *ac = [[FFSelectAutoController alloc] initWithTipo:1];
     [self.navigationController pushViewController:ac animated:YES];
     [ac release];
 }
 
 - (IBAction)btnCaminhao:(id)sender {
-    FFSelectAutoController *ac = [[FFSelectAutoController alloc] init];
+    FFSelectAutoController *ac = [[FFSelectAutoController alloc] initWithTipo:2];
     [self.navigationController pushViewController:ac animated:YES];
     [ac release];
 }

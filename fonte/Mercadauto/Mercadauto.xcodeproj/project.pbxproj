@@ -22,6 +22,7 @@
 		2C81515217AC4CBC004A7578 /* FFSelectAutoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C81515017AC4CBC004A7578 /* FFSelectAutoController.xib */; };
 		2C81515617AC53F9004A7578 /* FFMapAutoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C81515417AC53F9004A7578 /* FFMapAutoController.m */; };
 		2C81515717AC53F9004A7578 /* FFMapAutoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C81515517AC53F9004A7578 /* FFMapAutoController.xib */; };
+		2CC3235917B1384E00994D83 /* tabela.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CC3235817B1384E00994D83 /* tabela.plist */; };
 		2CD7108917B073CD00EC3DF8 /* carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD7108617B073CC00EC3DF8 /* carro.png */; };
 		2CD7108A17B073CD00EC3DF8 /* caminhao.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD7108717B073CC00EC3DF8 /* caminhao.png */; };
 		2CD7108B17B073CD00EC3DF8 /* moto.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD7108817B073CC00EC3DF8 /* moto.png */; };
@@ -51,6 +52,7 @@
 		2C81515317AC53F9004A7578 /* FFMapAutoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFMapAutoController.h; sourceTree = "<group>"; };
 		2C81515417AC53F9004A7578 /* FFMapAutoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFMapAutoController.m; sourceTree = "<group>"; };
 		2C81515517AC53F9004A7578 /* FFMapAutoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FFMapAutoController.xib; sourceTree = "<group>"; };
+		2CC3235817B1384E00994D83 /* tabela.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tabela.plist; sourceTree = "<group>"; };
 		2CD7108617B073CC00EC3DF8 /* carro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carro.png; sourceTree = "<group>"; };
 		2CD7108717B073CC00EC3DF8 /* caminhao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caminhao.png; sourceTree = "<group>"; };
 		2CD7108817B073CC00EC3DF8 /* moto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto.png; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				2C81513D17AC4BCC004A7578 /* Default.png */,
 				2C81513F17AC4BCC004A7578 /* Default@2x.png */,
 				2C81514117AC4BCC004A7578 /* Default-568h@2x.png */,
+				2CC3235817B1384E00994D83 /* tabela.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				2CD7108A17B073CD00EC3DF8 /* caminhao.png in Resources */,
 				2CD7108B17B073CD00EC3DF8 /* moto.png in Resources */,
 				2CD7109317B0867A00EC3DF8 /* grafico.png in Resources */,
+				2CC3235917B1384E00994D83 /* tabela.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
