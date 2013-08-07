@@ -10,4 +10,8 @@
 
 @implementation FFConstants
 
+NSString *const MOTO = @"0";
+NSString *const CARRO = @"1";
+NSString *const CAMINHAO = @"2";
+
 @end

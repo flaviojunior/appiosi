@@ -8,6 +8,7 @@
 
 #import "FFSelectAutoController.h"
 #import "FFMapAutoController.h"
+#import "FFConstants.h"
 
 @interface FFSelectAutoController ()
 
@@ -50,21 +51,26 @@ int tipoSelecionado;
     pickerMarca.dataSource = self;
     pickerModelo.dataSource = self;
     pickerAno.dataSource = self;
+    NSString *tipo = nil;
     
     switch (tipoSelecionado) {
         case 0:
             _imgTipoSelecionado.image = [UIImage imageNamed:NSLocalizedString(@"moto",@"")];
+            tipo = MOTO;
             break;
         case 1:
             _imgTipoSelecionado.image = [UIImage imageNamed:NSLocalizedString(@"carro",@"")];
+            tipo = CARRO;
             break;
         case 2:
             _imgTipoSelecionado.image = [UIImage imageNamed:NSLocalizedString(@"caminhao",@"")];
+            tipo = CAMINHAO;
             break;
         default:
             break;
     }
-    [self carregarPickers];
+   
+    [self carregarPickers:tipo];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,23 +92,27 @@ int tipoSelecionado;
     return  self;
 }
 
--(void) carregarPickers {
+-(void) carregarPickers:(NSString *) tipo {
     NSString *pListDados = [[NSBundle mainBundle] pathForResource:@"tabela" ofType:@"plist"];
     NSDictionary *pl = [NSDictionary dictionaryWithContentsOfFile:pListDados];
     
-    NSArray *dadosMarcas = [pl objectForKey:@"Marcas0"];
+    NSString *strMarca = [@"Marcas" stringByAppendingString:tipo];
+    NSString *strModelo = [@"Modelos" stringByAppendingString:tipo];
+    NSString *strAno = @"Ano0";//Ano eh sempre o mesmo
+    
+    NSArray *dadosMarcas = [pl objectForKey:strMarca];
     marcas = [[NSMutableArray alloc] init];
     for (NSDictionary *item in dadosMarcas) {
         [marcas addObject:item];
     }
     
-    NSArray *dadosModelos = [pl objectForKey:@"Modelos0"];
+    NSArray *dadosModelos = [pl objectForKey:strModelo];
     modelos = [[NSMutableArray alloc] init];
     for (NSDictionary *item in dadosModelos) {
         [modelos addObject:item];
     }
     
-    NSArray *dadosAno = [pl objectForKey:@"Ano0"];
+    NSArray *dadosAno = [pl objectForKey:strAno];
     anos = [[NSMutableArray alloc] init];
     for (NSDictionary *item in dadosAno) {
         [anos addObject:item];

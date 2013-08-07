@@ -7,10 +7,30 @@
 		<string>Honda</string>
 		<string>Yahama</string>
 	</array>
+	<key>Marcas1</key>
+	<array>
+		<string>Honda 1</string>
+		<string>Yahama 1</string>
+	</array>
+	<key>Marcas2</key>
+	<array>
+		<string>Honda 2</string>
+		<string>Yahama 2</string>
+	</array>
 	<key>Modelos0</key>
 	<array>
 		<string>CB 300</string>
 		<string>CG Titan</string>
+	</array>
+	<key>Modelos1</key>
+	<array>
+		<string>Focus</string>
+		<string>Gol</string>
+	</array>
+	<key>Modelos2</key>
+	<array>
+		<string>Caminhao 1</string>
+		<string>Caminhao 2</string>
 	</array>
 	<key>Ano0</key>
 	<array>

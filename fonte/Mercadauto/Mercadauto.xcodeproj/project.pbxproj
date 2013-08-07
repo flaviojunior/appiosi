@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EBDFEE617B1D6C5000C8128 /* FFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBDFEE517B1D6C5000C8128 /* FFConstants.m */; };
 		2C81512C17AC4BCC004A7578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C81512B17AC4BCC004A7578 /* UIKit.framework */; };
 		2C81512E17AC4BCC004A7578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C81512D17AC4BCC004A7578 /* Foundation.framework */; };
 		2C81513017AC4BCC004A7578 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C81512F17AC4BCC004A7578 /* CoreGraphics.framework */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EBDFEE417B1D6C5000C8128 /* FFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFConstants.h; sourceTree = "<group>"; };
+		1EBDFEE517B1D6C5000C8128 /* FFConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFConstants.m; sourceTree = "<group>"; };
 		2C81512817AC4BCC004A7578 /* Mercadauto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercadauto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C81512B17AC4BCC004A7578 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2C81512D17AC4BCC004A7578 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,8 @@
 				2C81515417AC53F9004A7578 /* FFMapAutoController.m */,
 				2C81515517AC53F9004A7578 /* FFMapAutoController.xib */,
 				2C81513217AC4BCC004A7578 /* Supporting Files */,
+				1EBDFEE417B1D6C5000C8128 /* FFConstants.h */,
+				1EBDFEE517B1D6C5000C8128 /* FFConstants.m */,
 			);
 			path = Mercadauto;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				2C81514517AC4BCC004A7578 /* FFViewController.m in Sources */,
 				2C81515117AC4CBC004A7578 /* FFSelectAutoController.m in Sources */,
 				2C81515617AC53F9004A7578 /* FFMapAutoController.m in Sources */,
+				1EBDFEE617B1D6C5000C8128 /* FFConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,8 @@
 
 @interface FFConstants : NSObject
 
+FOUNDATION_EXPORT NSString *const MOTO;
+FOUNDATION_EXPORT NSString *const CARRO;
+FOUNDATION_EXPORT NSString *const CAMINHAO;
+
 @end
