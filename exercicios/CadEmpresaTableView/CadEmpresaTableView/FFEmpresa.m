@@ -9,12 +9,12 @@
 #import "FFEmpresa.h"
 
 @implementation FFEmpresa
-@synthesize  nomeEmpresa, quantidade;
+@synthesize  nome, quantidade;
 
-- (id)initWithNome:(NSString *)nomeEmpresa andQuantidade:(NSNumber *)quantidade {
+- (id)initWithNome:(NSString *)nomeEmpresa andQuantidade:(NSNumber *)qtde {
     if (self = [super init]) {
-        self.nomeEmpresa = nomeEmpresa;
-        self.quantidade = quantidade;
+        self.nome = nomeEmpresa;
+        self.quantidade = qtde;
     }
     
     return  self;

@@ -13,10 +13,10 @@
     NSNumber *quantidade;
 }
 
--(id) initWithNome:(NSString *) nomeEmpresa
-     andQuantidade: (NSNumber *) quantidade;
+-(id) initWithNome:(NSString *) nome
+     andQuantidade: (NSNumber *) qtde;
 
-@property (nonatomic, retain) NSString *nomeEmpresa;
+@property (nonatomic, retain) NSString *nome;
 @property (nonatomic, retain) NSNumber *quantidade;
 
 @end
