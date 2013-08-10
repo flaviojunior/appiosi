@@ -57,11 +57,11 @@
     if(!cell) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CelulaEmpresaCacheID] autorelease];
     }
-
-FFEmpresa *empresa = [empresas objectAtIndex:indexPath.row];
-cell.textLabel.text = empresa.nome;
-
-return cell;
+    
+    FFEmpresa *empresa = [empresas objectAtIndex:indexPath.row];
+    cell.textLabel.text = empresa.nome;
+    
+    return cell;
 }
 
 - (void) tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
@@ -72,9 +72,38 @@ return cell;
     [self.tabelaEmpresas deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void) tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [empresas removeObjectAtIndex:indexPath.row];
+    [self.tabelaEmpresas reloadData];
+}
+
+-(NSString *) tableView:(UITableView *)tableView
+titleForDeleteConfirmationButtonForRowAtIndexPath:
+(NSIndexPath *)indexPath {
+    return @"Remover";
+}
+
+-(UITableViewCellEditingStyle) tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (IBAction)botaoEditar:(id)sender {
+    if ([self.botaoEditar.title isEqualToString:@"Editar"]) {
+        [self.tabelaEmpresas setEditing:YES animated:YES];
+        self.botaoEditar.title = @"Pronto";
+    }else {
+        [self.tabelaEmpresas setEditing:NO animated:YES];
+        self.botaoEditar.title = @"Editar";
+    }
+}
 
 - (void)dealloc {
     [_tabelaEmpresas release];
+    [_botaoEditar release];
     [super dealloc];
 }
+
 @end

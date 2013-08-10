@@ -12,7 +12,9 @@
     NSMutableArray *empresas;
 
 }
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *botaoEditar;
 @property (retain, nonatomic) IBOutlet UITableView *tabelaEmpresas;
+- (IBAction)botaoEditar:(id)sender;
 
 
 @end
