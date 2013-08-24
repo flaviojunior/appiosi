@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[FFViewController carregarFonteDados:]:FFViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[FFViewController tableView:didSelectRowAtIndexPath:]:FFViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[FFViewController viewDidLoad]:FFViewController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
