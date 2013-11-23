@@ -21,6 +21,7 @@
 		C749F5921840D21A00A7AF24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C749F5741840D21A00A7AF24 /* UIKit.framework */; };
 		C749F59A1840D21A00A7AF24 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C749F5981840D21A00A7AF24 /* InfoPlist.strings */; };
 		C749F59C1840D21A00A7AF24 /* MercadautoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C749F59B1840D21A00A7AF24 /* MercadautoTests.m */; };
+		C749F5A71840DB4000A7AF24 /* EEEscolhaTipoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C749F5A61840DB4000A7AF24 /* EEEscolhaTipoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		C749F5971840D21A00A7AF24 /* MercadautoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MercadautoTests-Info.plist"; sourceTree = "<group>"; };
 		C749F5991840D21A00A7AF24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C749F59B1840D21A00A7AF24 /* MercadautoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MercadautoTests.m; sourceTree = "<group>"; };
+		C749F5A51840DB4000A7AF24 /* EEEscolhaTipoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEEscolhaTipoViewController.h; sourceTree = "<group>"; };
+		C749F5A61840DB4000A7AF24 /* EEEscolhaTipoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEEscolhaTipoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				C749F5861840D21A00A7AF24 /* EEViewController.m */,
 				C749F5881840D21A00A7AF24 /* Images.xcassets */,
 				C749F5771840D21A00A7AF24 /* Supporting Files */,
+				C749F5A51840DB4000A7AF24 /* EEEscolhaTipoViewController.h */,
+				C749F5A61840DB4000A7AF24 /* EEEscolhaTipoViewController.m */,
 			);
 			path = Mercadauto;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C749F5A71840DB4000A7AF24 /* EEEscolhaTipoViewController.m in Sources */,
 				C749F5871840D21A00A7AF24 /* EEViewController.m in Sources */,
 				C749F5811840D21A00A7AF24 /* EEAppDelegate.m in Sources */,
 				C749F57D1840D21A00A7AF24 /* main.m in Sources */,
