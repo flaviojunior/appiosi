@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */; };
+		A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */; };
 		C749F5711840D21A00A7AF24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C749F5701840D21A00A7AF24 /* Foundation.framework */; };
 		C749F5731840D21A00A7AF24 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C749F5721840D21A00A7AF24 /* CoreGraphics.framework */; };
 		C749F5751840D21A00A7AF24 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C749F5741840D21A00A7AF24 /* UIKit.framework */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9DFC2C51842AFE400673EC7 /* EECellOpcoesFiltro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECellOpcoesFiltro.h; sourceTree = "<group>"; };
+		A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EECellOpcoesFiltro.m; sourceTree = "<group>"; };
+		A9DFC2C81842B0AE00673EC7 /* EEViewSelectAuto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEViewSelectAuto.h; sourceTree = "<group>"; };
+		A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEViewSelectAuto.m; sourceTree = "<group>"; };
 		C749F56D1840D21A00A7AF24 /* Mercadauto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercadauto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C749F5701840D21A00A7AF24 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C749F5721840D21A00A7AF24 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9DFC2C41842AFBD00673EC7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A9DFC2C51842AFE400673EC7 /* EECellOpcoesFiltro.h */,
+				A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		C749F5641840D21A00A7AF24 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +130,7 @@
 		C749F5761840D21A00A7AF24 /* Mercadauto */ = {
 			isa = PBXGroup;
 			children = (
+				A9DFC2C41842AFBD00673EC7 /* Cells */,
 				C749F57F1840D21A00A7AF24 /* EEAppDelegate.h */,
 				C749F5801840D21A00A7AF24 /* EEAppDelegate.m */,
 				C749F5821840D21A00A7AF24 /* Main.storyboard */,
@@ -124,6 +140,8 @@
 				C749F5771840D21A00A7AF24 /* Supporting Files */,
 				C749F5A51840DB4000A7AF24 /* EEEscolhaTipoViewController.h */,
 				C749F5A61840DB4000A7AF24 /* EEEscolhaTipoViewController.m */,
+				A9DFC2C81842B0AE00673EC7 /* EEViewSelectAuto.h */,
+				A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */,
 			);
 			path = Mercadauto;
 			sourceTree = "<group>";
@@ -255,6 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */,
+				A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */,
 				C749F5A71840DB4000A7AF24 /* EEEscolhaTipoViewController.m in Sources */,
 				C749F5871840D21A00A7AF24 /* EEViewController.m in Sources */,
 				C749F5811840D21A00A7AF24 /* EEAppDelegate.m in Sources */,
@@ -467,6 +487,7 @@
 				C749F5A11840D21A00A7AF24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C749F5A21840D21A00A7AF24 /* Build configuration list for PBXNativeTarget "MercadautoTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +496,7 @@
 				C749F5A41840D21A00A7AF24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
