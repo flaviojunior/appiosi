@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableFiltro;
 @property (weak, nonatomic) IBOutlet UITableView *tableResult;
+
+-(void)setValueCellFiltro:(int)tipo valueCell:(NSString *)value;
 @end

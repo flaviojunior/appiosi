@@ -8,12 +8,15 @@
 
 #import "EEViewSelectAuto.h"
 #import "EECellOpcoesFiltro.h"
+#import "EETableSelectItemViewController.h"
 
 @interface EEViewSelectAuto ()
 
 @end
 
 @implementation EEViewSelectAuto
+
+EETableSelectItemViewController *tableSelectItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -97,7 +100,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if([tableView isEqual:_tableFiltro])
+    {
+        tableSelectItem = (EETableSelectItemViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EETableSelectItemViewController"];
+        
+        [tableSelectItem setTipoPesquisa:indexPath.row];
+        tableSelectItem.viewDeRetorno = self;
+        [self.navigationController pushViewController:tableSelectItem animated:YES];
+    }
+}
 
+-(void)setValueCellFiltro:(int)tipo valueCell:(NSString *)value
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:tipo inSection:0];
+    EECellOpcoesFiltro *cell = (EECellOpcoesFiltro *)[_tableFiltro cellForRowAtIndexPath:indexPath];
+    
+    cell.labelValue.text = value;
+    
+    [cell reloadInputViews];
 }
 
 @end

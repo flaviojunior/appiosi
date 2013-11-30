@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="679" y="-142"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Table Select Item View Controller-->
         <scene sceneID="zSR-7u-dWc">
             <objects>
-                <tableViewController id="Ie0-yG-wv1" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="EETableSelectItemViewController" storyboardIdentifier="EETableSelectItemViewController" id="Ie0-yG-wv1" customClass="EETableSelectItemViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sOr-4E-2Ff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,6 +265,9 @@
                             <outlet property="delegate" destination="Ie0-yG-wv1" id="2f8-il-dAv"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableViewItens" destination="sOr-4E-2Ff" id="ZRy-jE-3PV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1i-rB-56l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
