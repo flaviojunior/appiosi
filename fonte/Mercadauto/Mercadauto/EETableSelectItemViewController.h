@@ -23,6 +23,7 @@
     EEViewSelectAuto *viewDeRetorno;
     NSMutableArray *arrayItens;
     
+    
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViewItens;

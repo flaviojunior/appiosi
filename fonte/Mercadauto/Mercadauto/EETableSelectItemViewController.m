@@ -130,6 +130,8 @@
 {
     NSMutableArray *array = [[NSMutableArray alloc]init];
     [array addObject:@"i30"];
+    
+    
     arrayItens = array;
     
     [_tableViewItens reloadData];
