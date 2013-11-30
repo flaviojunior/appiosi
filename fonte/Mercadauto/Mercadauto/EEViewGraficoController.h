@@ -16,4 +16,6 @@
 
 @property (readwrite, strong, nonatomic) NSMutableArray *dataForPlot;
 
+-(void) setDadosComparacao:(NSMutableArray *) veiculos;
+
 @end
