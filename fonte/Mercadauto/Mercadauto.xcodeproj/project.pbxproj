@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */; };
 		A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */; };
 		A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */; };
 		C749F5711840D21A00A7AF24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C749F5701840D21A00A7AF24 /* Foundation.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A942EBEE184A3B0A000A7880 /* EETableSelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETableSelectItemViewController.h; sourceTree = "<group>"; };
+		A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETableSelectItemViewController.m; sourceTree = "<group>"; };
 		A9DFC2C51842AFE400673EC7 /* EECellOpcoesFiltro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECellOpcoesFiltro.h; sourceTree = "<group>"; };
 		A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EECellOpcoesFiltro.m; sourceTree = "<group>"; };
 		A9DFC2C81842B0AE00673EC7 /* EEViewSelectAuto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEViewSelectAuto.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				C749F5A61840DB4000A7AF24 /* EEEscolhaTipoViewController.m */,
 				A9DFC2C81842B0AE00673EC7 /* EEViewSelectAuto.h */,
 				A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */,
+				A942EBEE184A3B0A000A7880 /* EETableSelectItemViewController.h */,
+				A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */,
 			);
 			path = Mercadauto;
 			sourceTree = "<group>";
@@ -459,6 +464,7 @@
 				C74E190C18453A1800DCBC0F /* EEViewGraficoController.m in Sources */,
 				A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */,
 				C749F5A71840DB4000A7AF24 /* EEEscolhaTipoViewController.m in Sources */,
+				A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */,
 				C749F5871840D21A00A7AF24 /* EEViewController.m in Sources */,
 				C749F5811840D21A00A7AF24 /* EEAppDelegate.m in Sources */,
 				C749F57D1840D21A00A7AF24 /* main.m in Sources */,
@@ -601,7 +607,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
+					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -622,7 +628,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
+					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
