@@ -7,6 +7,7 @@
 //
 
 #import "EETableSelectItemViewController.h"
+#import "EERestUtil.h"
 
 @interface EETableSelectItemViewController ()
 
@@ -99,7 +100,8 @@
         
     }
     
-    cell.textLabel.text = [arrayItens objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[arrayItens objectAtIndex:indexPath.row] objectForKey:@"descricao"];
+    cell.tag = [[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
     
     return cell;
 }
@@ -107,8 +109,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *value = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-    [viewDeRetorno setValueCellFiltro:tipoPesquisa valueCell:value];
-    
+    NSInteger *idValue = [tableView cellForRowAtIndexPath:indexPath].tag;
+    [viewDeRetorno setValueCellFiltro:tipoPesquisa valueCell:value :idValue ];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -117,31 +119,48 @@
     tipoPesquisa = tipo;
 }
 
-
 -(void)generateArrayFromMarca
 {
-    NSMutableArray *array = [[NSMutableArray alloc]init];
-    [array addObject:@"Hyunday"];
-    arrayItens = array;
-    
+    arrayItens = [self buscarMarcas];
     [_tableViewItens reloadData];
 }
 -(void)generateArrayFromModelo
 {
-    NSMutableArray *array = [[NSMutableArray alloc]init];
-    [array addObject:@"i30"];
-    
-    
-    arrayItens = array;
-    
+    arrayItens = [self buscarModelosPorMarca];
     [_tableViewItens reloadData];
 }
 -(void)generateArrayFromAno
 {
-    NSMutableArray *array = [[NSMutableArray alloc]init];
-    [array addObject:@"2013"];
-    arrayItens = array;
-    
+    arrayItens = [self buscarAnosModelosPorModelo];
     [_tableViewItens reloadData];
+}
+
+
+
+- (NSMutableArray *) buscarMarcas{
+    
+    //NSDictionary *dicItem = (NSDictionary*) _detailItem;
+    NSString *urlList = @"http://www.flaviojunior.com.br/mercadauto/json/jsonmarcas.php";
+    NSMutableArray *marcas = [EERestUtil request:urlList];
+    return marcas;
+}
+
+
+- (NSMutableArray *) buscarModelosPorMarca {
+    
+    //NSDictionary *dicItem = (NSDictionary*) _detailItem;
+    NSString *urlList = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsonmodelos.php?m=%d", _marca];
+    NSMutableArray *modelos = [EERestUtil request:urlList];
+    return modelos;
+}
+
+
+- (NSMutableArray *)  buscarAnosModelosPorModelo{
+    
+    //NSDictionary *dicItem = (NSDictionary*) _detailItem;
+    NSString *urlList =[NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsonanosmodelo.php?m=%d",_modelo];
+    NSMutableArray *anosModelos = [EERestUtil request:urlList];
+    return anosModelos;
+    
 }
 @end

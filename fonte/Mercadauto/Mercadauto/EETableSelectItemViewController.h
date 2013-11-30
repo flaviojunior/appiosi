@@ -22,13 +22,17 @@
     int tipoPesquisa;
     EEViewSelectAuto *viewDeRetorno;
     NSMutableArray *arrayItens;
-    
-    
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableViewItens;
 @property(nonatomic,strong) NSMutableArray *arrayItens;
 @property(nonatomic,strong) EEViewSelectAuto *viewDeRetorno;
+
+@property(assign) NSInteger *marca;
+@property(assign) NSInteger *modelo;
+@property(assign) NSInteger *anoModelo;
+
+
 
 -(void)setTipoPesquisa:(int)tipo;
 @end
