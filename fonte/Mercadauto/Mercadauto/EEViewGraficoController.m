@@ -117,7 +117,7 @@
     for ( i = 0; i < 6; i++ ) {
         id x = [NSNumber numberWithFloat:i];
         id y = [NSNumber numberWithFloat:i*i];
-        [contentArray addObject:[NSMux tableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
+        //[contentArray addObject:[NSMutableDictionary tableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
     }
     self.dataForPlot = contentArray;
 
