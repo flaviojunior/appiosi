@@ -9,8 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EEEscolhaTipoViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *botaoCarro;
-@property (weak, nonatomic) IBOutlet UIButton *botaoMoto;
-@property (weak, nonatomic) IBOutlet UIButton *botaoCaminhao;
 
 @end

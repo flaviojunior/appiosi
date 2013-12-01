@@ -8,15 +8,12 @@
 
 #import "EEViewSelectAuto.h"
 #import "EECellOpcoesFiltro.h"
-#import "EETableSelectItemViewController.h"
 
 @interface EEViewSelectAuto ()
 
 @end
 
 @implementation EEViewSelectAuto
-
-EETableSelectItemViewController *tableSelectItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -100,39 +97,7 @@ EETableSelectItemViewController *tableSelectItem;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([tableView isEqual:_tableFiltro])
-    {
-        tableSelectItem = (EETableSelectItemViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EETableSelectItemViewController"];
-        
-        [tableSelectItem setTipoPesquisa:indexPath.row];
-        [tableSelectItem setMarca:self.marca];
-        [tableSelectItem setModelo:self.modelo];
-        [tableSelectItem setAnoModelo:self.anoModelo];
-        tableSelectItem.viewDeRetorno = self;
-        [self.navigationController pushViewController:tableSelectItem animated:YES];
-    }
-}
 
--(void)setValueCellFiltro:(int)tipo valueCell:(NSString *)value :(NSInteger*)idValue
-{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:tipo inSection:0];
-    EECellOpcoesFiltro *cell = (EECellOpcoesFiltro *)[_tableFiltro cellForRowAtIndexPath:indexPath];
-    cell.labelValue.text = value;
-    
-    switch (tipo) {
-        case 0:
-            self.marca = idValue;
-            break;
-        case 1:
-            self.modelo = idValue;
-            break;
-        case 2:
-            self.anoModelo = idValue;
-            break;
-        default:
-            break;
-    }
-    [cell reloadInputViews];
 }
 
 @end
