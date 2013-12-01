@@ -60,7 +60,7 @@
     
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     plotSpace.allowsUserInteraction = NO;
-    plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(12.0)];
+    plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(5.5)];
     plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(200.0)];
     
     // Axes
@@ -69,34 +69,22 @@
     x.majorIntervalLength         = CPTDecimalFromString(@"1");
     x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     x.minorTicksPerInterval       = 0;
-    NSArray *exclusionRanges = [NSArray arrayWithObjects:
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)],
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
-                                [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(2.99) length:CPTDecimalFromFloat(0.02)],
-                                nil];
-    //x.labelExclusionRanges = exclusionRanges;
     
-    
+    //Eixo com os meses
     // Define some custom labels for the data elements
     x.labelRotation = M_PI/4;
     x.labelingPolicy = CPTAxisLabelingPolicyNone;
-
     NSArray *customTickLocations = [NSArray
-                                    arrayWithObjects:[NSDecimalNumber numberWithInt:1],
+                                    arrayWithObjects:[NSDecimalNumber numberWithInt:0],
+                                    [NSDecimalNumber numberWithInt:1],
                                     [NSDecimalNumber numberWithInt:2],
                                     [NSDecimalNumber numberWithInt:3],
                                     [NSDecimalNumber numberWithInt:4],
                                     [NSDecimalNumber numberWithInt:5],
-                                    [NSDecimalNumber numberWithInt:6],
-                                    [NSDecimalNumber numberWithInt:7],
-                                    [NSDecimalNumber numberWithInt:8],
-                                    [NSDecimalNumber numberWithInt:9],
-                                    [NSDecimalNumber numberWithInt:10],
-                                    [NSDecimalNumber numberWithInt:11],
-                                    [NSDecimalNumber numberWithInt:12],
                                     nil];
-    NSArray *xAxisLabels = [NSArray arrayWithObjects:@"Jan", @"Fev", @"Mar", @"Abr", @"Mai",@"Jun", @"Jul",
-                            @"Ago", @"Set", @"Out",@"Nov",@"Dez", nil];
+    
+    NSArray *xAxisLabels = [self getArrayMeses];
+    
     NSUInteger labelLocation = 0;
     NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[xAxisLabels count]];
     for (NSNumber *tickLocation in customTickLocations) {
@@ -116,23 +104,75 @@
     y.minorTicksPerInterval       = 0;
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
-    exclusionRanges               = [NSArray arrayWithObjects:
-                                     [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(1.99) length:CPTDecimalFromFloat(0.02)],
-                                     [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.99) length:CPTDecimalFromFloat(0.02)],
-                                     [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(3.99) length:CPTDecimalFromFloat(0.02)],
-                                     nil];
-    y.labelExclusionRanges = exclusionRanges;
     
     y.delegate             = self;
     
+    
+    // *** Iterar sobre as tendencias valores
+    [self criaTendencia:@"Modelo" cor:[CPTColor redColor]];
+    
+    // Add some initial data
+    NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:100];
+    NSUInteger i;
+    for ( i = 0; i < 6; i++ ) {
+        id x = [NSNumber numberWithFloat:i];
+        id y = [NSNumber numberWithFloat:i*i];
+        [contentArray addObject:[NSMux tableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
+    }
+    self.dataForPlot = contentArray;
+
+    // *******************************************
+    
+	// Do any additional setup after loading the view.
+}
+
+- (NSArray *) getArrayMeses{
+    
+    NSDate *data = [NSDate date];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dateComponents = [gregorian components:(NSMonthCalendarUnit) fromDate:data];
+    NSInteger month = [dateComponents month];
+    
+    NSDateComponents *componenteMes = [[NSDateComponents alloc]init];
+    componenteMes.month = -1;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM"];
+    
+    NSMutableArray *meses = [NSMutableArray arrayWithCapacity:6 ];
+    
+    for (int i=0;i<6;i++){
+        NSString *nomeMes = [formatter stringFromDate:data];
+        data = [gregorian dateByAddingComponents:componenteMes toDate:data options:0];
+        [meses addObject:nomeMes];
+    }
+    
+    //[data ]
+    
+    
+    
+    
+    
+    
+    //NSDictionary *nomeMeses = [NSDictionary dictionaryWithObjectsAndKeys:@"Jan",1,@"Jan",1, nil];
+    
+    
+    
+    //NSArray *meses = [NSArray arrayWithObjects:@"Jan", @"Fev", @"Mar", @"Abr", @"Mai",@"Jun", @"Jul",
+     //                       @"Ago", @"Set", @"Out",@"Nov",@"Dez", nil];
+    return [[meses reverseObjectEnumerator] allObjects];
+}
+
+- (void) criaTendencia:(NSString *) idTendencia cor:(CPTColor *) cor {
     // Create a blue plot area
     CPTScatterPlot *boundLinePlot  = [[CPTScatterPlot alloc] init];
     CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
     lineStyle.miterLimit        = 1.0f;
-    lineStyle.lineWidth         = 3.0f;
-    lineStyle.lineColor         = [CPTColor blueColor];
+    lineStyle.lineWidth         = 2.0f;
+    lineStyle.lineColor         = cor;
     boundLinePlot.dataLineStyle = lineStyle;
-    boundLinePlot.identifier    = @"Blue Plot";
+    boundLinePlot.identifier    = idTendencia;
     boundLinePlot.dataSource    = self;
     [graph addPlot:boundLinePlot];
     
@@ -144,24 +184,12 @@
     plotSymbol.lineStyle     = symbolLineStyle;
     plotSymbol.size          = CGSizeMake(5.0, 5.0);
     boundLinePlot.plotSymbol = plotSymbol;
-    
-    // Add some initial data
-    NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:100];
-    NSUInteger i;
-    for ( i = 1; i <= 12; i++ ) {
-        id x = [NSNumber numberWithFloat:i];
-        id y = [NSNumber numberWithFloat:i*i];
-        [contentArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
-    }
-    self.dataForPlot = contentArray;
-
-	// Do any additional setup after loading the view.
 }
 
 
--(NSMutableArray *)obterDadosParaGrafico: (CPTPlot *)plot
+-(NSMutableArray *)obterDadosParaGrafico: (NSString *) identificador
 {
-    if ([plot.identifier isEqual:@"Blue Plot"]){
+    if ([identificador isEqual:@"Modelo"]){
         return dataForPlot;
     }else{
         return [[NSMutableArray alloc] init];
@@ -184,12 +212,12 @@
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
     
-    return [[self obterDadosParaGrafico:plot] count];
+    return [[self obterDadosParaGrafico:plot.identifier] count];
     
 }
 
--(void) setDadosComparacao:(NSMutableArray *) veiculos{
-
+-(void) setDadosComparacao:(NSMutableArray *) v{
+    veiculos = v;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index

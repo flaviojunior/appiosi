@@ -11,6 +11,7 @@
 
 @interface EEViewGraficoController : UIViewController<CPTPlotDataSource, CPTAxisDelegate>{
     CPTXYGraph *graph;
+    NSMutableArray *veiculos;
     NSMutableArray *dataForPlot;
 }
 
