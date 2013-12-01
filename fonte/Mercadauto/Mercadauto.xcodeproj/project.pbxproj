@@ -607,7 +607,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
+					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -628,7 +628,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
+					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
