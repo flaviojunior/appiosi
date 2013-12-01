@@ -11,12 +11,14 @@
 
 @interface EEViewGraficoController : UIViewController<CPTPlotDataSource, CPTAxisDelegate>{
     CPTXYGraph *graph;
-    NSMutableArray *veiculos;
-    NSMutableArray *dataForPlot;
+    NSMutableArray *modelosPesquisa;
+    NSMutableDictionary *dataForPlot;
+    NSMutableDictionary *dadosTratados;
+    int max,min;
 }
 
-@property (readwrite, strong, nonatomic) NSMutableArray *dataForPlot;
+@property (readwrite, strong, nonatomic) NSMutableDictionary *dataForPlot;
 
--(void) setDadosComparacao:(NSMutableArray *) veiculos;
+-(void) setDadosComparacao:(NSMutableArray *) modelosPesquisa;
 
 @end

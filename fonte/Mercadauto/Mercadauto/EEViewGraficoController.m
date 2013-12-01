@@ -7,6 +7,7 @@
 //
 
 #import "EEViewGraficoController.h"
+#import "EERestUtil.h"
 
 
 @implementation EEViewGraficoController
@@ -32,9 +33,15 @@
 }
 
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self buscaDadosPlotagem];
+    
+    NSArray *arrayMeses = [self getArrayMeses];
+    
     // Create graph from theme
     graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
@@ -59,15 +66,26 @@
     // Setup plot space
     
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = NO;
+    plotSpace.allowsUserInteraction = YES;
     plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(5.5)];
-    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(200.0)];
+    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(min/1000) length:CPTDecimalFromFloat((max-min)/1000)];
     
     // Axes
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+    
+    [self configuraEixoX:axisSet arrayLabels:arrayMeses];
+    
+    [self configuraEixoY:axisSet];
+    
+    
+    [self geraValoresGrafico: arrayMeses];
+    
+}
+
+-(void) configuraEixoX:(CPTXYAxisSet *) axisSet arrayLabels:(NSArray *) xAxisLabels{
     CPTXYAxis *x          = axisSet.xAxis;
     x.majorIntervalLength         = CPTDecimalFromString(@"1");
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString([NSString stringWithFormat:@"%d",min/1000]);
     x.minorTicksPerInterval       = 0;
     
     //Eixo com os meses
@@ -83,12 +101,14 @@
                                     [NSDecimalNumber numberWithInt:5],
                                     nil];
     
-    NSArray *xAxisLabels = [self getArrayMeses];
     
     NSUInteger labelLocation = 0;
     NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[xAxisLabels count]];
     for (NSNumber *tickLocation in customTickLocations) {
-        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [xAxisLabels objectAtIndex:labelLocation++] textStyle:x.labelTextStyle];
+        
+        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc]
+                                  initWithText: [[xAxisLabels objectAtIndex:labelLocation++] objectForKey:@"nome"]
+                                  textStyle:x.labelTextStyle];
         newLabel.tickLocation = [tickLocation decimalValue];
         newLabel.offset = x.labelOffset + x.majorTickLength;
         newLabel.rotation = M_PI/4;
@@ -97,33 +117,71 @@
     }
     
     x.axisLabels =  [NSSet setWithArray:customLabels];
-    
-    
+}
+
+-(void) configuraEixoY:(CPTXYAxisSet *) axisSet{
     CPTXYAxis *y = axisSet.yAxis;
     y.majorIntervalLength         = CPTDecimalFromString(@"10");
+
     y.minorTicksPerInterval       = 0;
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
     
     
     y.delegate             = self;
-    
-    
-    // *** Iterar sobre as tendencias valores
-    [self criaTendencia:@"Modelo" cor:[CPTColor redColor]];
-    
-    // Add some initial data
-    NSMutableArray *contentArray = [NSMutableArray arrayWithCapacity:100];
-    NSUInteger i;
-    for ( i = 0; i < 6; i++ ) {
-        id x = [NSNumber numberWithFloat:i];
-        id y = [NSNumber numberWithFloat:i*i];
-        //[contentArray addObject:[NSMutableDictionary tableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
-    }
-    self.dataForPlot = contentArray;
 
-    // *******************************************
+}
+
+
+- (void) geraValoresGrafico:(NSArray *) arrayMeses{
     
-	// Do any additional setup after loading the view.
+    
+    //Coloca dados em estrutura mais fácil para plotagem...
+   dadosTratados = [NSMutableDictionary dictionaryWithCapacity:4];
+    
+    NSMutableArray *veiculos = [self.dataForPlot objectForKey:@"veiculos"];
+    
+    for(NSDictionary *v in veiculos){
+        NSString *modelo = [v objectForKey:@"modelo"];
+        NSString *ano = [v objectForKey:@"ano_versao"];
+        NSMutableString *label = [NSMutableString stringWithString:modelo ];
+        [label appendString:@" - "];
+        [label appendString:ano];
+        
+        // *** Iterar sobre as tendencias valores
+        [self criaTendencia:label cor:[CPTColor redColor]];
+        
+        
+        NSMutableArray *valores = [v objectForKey:@"grafico"];
+        NSMutableArray *pontos =[NSMutableArray arrayWithCapacity:6];
+        
+        [dadosTratados setObject:pontos forKey:label];
+        
+        int count = 0;
+        for (NSDictionary *mes in arrayMeses){
+            //recupera mes e valor
+            NSString *mesREST = [mes objectForKey:@"nomeREST"];
+            NSString *valor = nil;
+            BOOL existe = NO;
+            for (NSDictionary *ponto in valores){
+                //recupera mes e valor
+                NSString *nomemes = [ponto objectForKey:@"mes"];
+                if ([nomemes isEqual:mesREST]){
+                    existe = YES;
+                    valor = [ponto objectForKey:@"valor"];
+                    break;
+                }
+            }
+            id x = [NSNumber numberWithFloat:count++];
+            id y =  (existe) ? [NSNumber numberWithInt:[valor intValue]] : nil;
+            
+            [pontos addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
+            
+        }
+        
+        
+        
+    }
+
 }
 
 - (NSArray *) getArrayMeses{
@@ -131,9 +189,6 @@
     NSDate *data = [NSDate date];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *dateComponents = [gregorian components:(NSMonthCalendarUnit) fromDate:data];
-    NSInteger month = [dateComponents month];
-    
     NSDateComponents *componenteMes = [[NSDateComponents alloc]init];
     componenteMes.month = -1;
     
@@ -143,24 +198,27 @@
     NSMutableArray *meses = [NSMutableArray arrayWithCapacity:6 ];
     
     for (int i=0;i<6;i++){
+        NSMutableDictionary *mes = [[NSMutableDictionary alloc] init];
         NSString *nomeMes = [formatter stringFromDate:data];
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth | NSCalendarUnitYear fromDate:data];
+        NSArray *mesesREST = [NSArray arrayWithObjects:@"JAN",@"FEV",@"MAR",@"ABR",@"MAI",@"JUN",@"JUL",@"AGO",@"SET",@"OUT",@"NOV",@"DEZ",nil];
+        
+        int indiceMes = [components month]-1;
+        int ano = [components year];
+        
+        
+        NSString *mesREST = [mesesREST objectAtIndex:indiceMes];
+        
+        NSString *nomeREST = [NSString stringWithFormat:@"%@/%4d",mesREST,ano];
+        
+        [mes setObject:nomeREST forKey:@"nomeREST"];
+        [mes setObject:nomeMes forKey:@"nome"];
+        
+        
         data = [gregorian dateByAddingComponents:componenteMes toDate:data options:0];
-        [meses addObject:nomeMes];
+        [meses addObject:mes];
+        
     }
-    
-    //[data ]
-    
-    
-    
-    
-    
-    
-    //NSDictionary *nomeMeses = [NSDictionary dictionaryWithObjectsAndKeys:@"Jan",1,@"Jan",1, nil];
-    
-    
-    
-    //NSArray *meses = [NSArray arrayWithObjects:@"Jan", @"Fev", @"Mar", @"Abr", @"Mai",@"Jun", @"Jul",
-     //                       @"Ago", @"Set", @"Out",@"Nov",@"Dez", nil];
     return [[meses reverseObjectEnumerator] allObjects];
 }
 
@@ -189,8 +247,10 @@
 
 -(NSMutableArray *)obterDadosParaGrafico: (NSString *) identificador
 {
-    if ([identificador isEqual:@"Modelo"]){
-        return dataForPlot;
+    NSMutableArray *pontos = [dadosTratados objectForKey:identificador];
+    
+    if (pontos != nil){
+        return pontos;
     }else{
         return [[NSMutableArray alloc] init];
     }
@@ -216,66 +276,28 @@
     
 }
 
+-(void) buscaDadosPlotagem{
+    NSString *url = @"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=3322,3323";
+    dataForPlot = [EERestUtil request:url];
+    min = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMinimo"] intValue];
+    max = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMaximo"] intValue];
+}
+
 -(void) setDadosComparacao:(NSMutableArray *) v{
-    veiculos = v;
+    modelosPesquisa = v;
+    
+    
+    
+    
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
+    
     NSString *key = (fieldEnum == CPTScatterPlotFieldX ? @"x" : @"y");
-    NSNumber *num = [[dataForPlot objectAtIndex:index] valueForKey:key];
+    NSNumber *num = [[[self obterDadosParaGrafico:plot.identifier] objectAtIndex:index] valueForKey:key];
     
     return num;
 }
-
-#pragma mark -
-#pragma mark Axis Delegate Methods
-
-//-(BOOL)axis:(CPTAxis *)axis shouldUpdateAxisLabelsAtLocations:(NSSet *)locations
-//{
-//    static CPTTextStyle *positiveStyle = nil;
-//    static CPTTextStyle *negativeStyle = nil;
-//    
-//    NSFormatter *formatter = axis.labelFormatter;
-//    CGFloat labelOffset    = axis.labelOffset;
-//    NSDecimalNumber *zero  = [NSDecimalNumber zero];
-//    
-//    NSMutableSet *newLabels = [NSMutableSet set];
-//    
-//    for ( NSDecimalNumber *tickLocation in locations ) {
-//        CPTTextStyle *theLabelTextStyle;
-//        
-//        if ( [tickLocation isGreaterThanOrEqualTo:zero] ) {
-//            if ( !positiveStyle ) {
-//                CPTMutableTextStyle *newStyle = [axis.labelTextStyle mutableCopy];
-//                newStyle.color = [CPTColor greenColor];
-//                positiveStyle  = newStyle;
-//            }
-//            theLabelTextStyle = positiveStyle;
-//        }
-//        else {
-//            if ( !negativeStyle ) {
-//                CPTMutableTextStyle *newStyle = [axis.labelTextStyle mutableCopy];
-//                newStyle.color = [CPTColor redColor];
-//                negativeStyle  = newStyle;
-//            }
-//            theLabelTextStyle = negativeStyle;
-//        }
-//        
-//        NSString *labelString       = [formatter stringForObjectValue:tickLocation];
-//        CPTTextLayer *newLabelLayer = [[CPTTextLayer alloc] initWithText:labelString style:theLabelTextStyle];
-//        
-//        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithContentLayer:newLabelLayer];
-//        newLabel.tickLocation = tickLocation.decimalValue;
-//        newLabel.offset       = labelOffset;
-//        
-//        [newLabels addObject:newLabel];
-//    }
-//    
-//    axis.axisLabels = newLabels;
-//    
-//    return NO;
-//}
-
 
 @end
