@@ -13,6 +13,7 @@
 @end
 
 @implementation EEEscolhaTipoViewController
+@synthesize botaoCarro, botaoMoto, botaoCaminhao;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self definirImagensBotoes];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,4 +43,18 @@
     }
 }
 
+
+-(void) definirImagensBotoes{
+    
+    UIImage *imgCarro = [UIImage imageNamed:@"carro.png"];
+    UIImage *imgMoto = [UIImage imageNamed:@"moto.png"];
+    UIImage *imgCaminhao = [UIImage imageNamed:@"caminhao.png"];
+    
+    [self.botaoCarro setBackgroundImage:[imgCarro stretchableImageWithLeftCapWidth:1 topCapHeight:1] forState:UIControlStateNormal];
+
+    [self.botaoMoto setBackgroundImage:[imgMoto stretchableImageWithLeftCapWidth:1 topCapHeight:1] forState:UIControlStateNormal];
+
+    [self.botaoCaminhao setBackgroundImage:[imgCaminhao stretchableImageWithLeftCapWidth:1 topCapHeight:1] forState:UIControlStateNormal];
+
+}
 @end
