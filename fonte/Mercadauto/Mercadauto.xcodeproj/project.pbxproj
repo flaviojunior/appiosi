@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E45E391184A56550099029D /* EERestUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E45E38F184A56550099029D /* EERestUtil.m */; };
-		1E45E395184A97780099029D /* carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E392184A97780099029D /* carro.png */; };
-		1E45E396184A97780099029D /* caminhao.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E393184A97780099029D /* caminhao.png */; };
-		1E45E397184A97780099029D /* moto.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E394184A97780099029D /* moto.png */; };
 		A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */; };
 		A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */; };
 		A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */; };
@@ -46,11 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E45E38F184A56550099029D /* EERestUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EERestUtil.m; sourceTree = "<group>"; };
-		1E45E390184A56550099029D /* EERestUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EERestUtil.h; sourceTree = "<group>"; };
-		1E45E392184A97780099029D /* carro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carro.png; sourceTree = "<group>"; };
-		1E45E393184A97780099029D /* caminhao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caminhao.png; sourceTree = "<group>"; };
-		1E45E394184A97780099029D /* moto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto.png; sourceTree = "<group>"; };
 		A942EBEE184A3B0A000A7880 /* EETableSelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETableSelectItemViewController.h; sourceTree = "<group>"; };
 		A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETableSelectItemViewController.m; sourceTree = "<group>"; };
 		A9DFC2C51842AFE400673EC7 /* EECellOpcoesFiltro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECellOpcoesFiltro.h; sourceTree = "<group>"; };
@@ -235,11 +226,6 @@
 		C749F5761840D21A00A7AF24 /* Mercadauto */ = {
 			isa = PBXGroup;
 			children = (
-				1E45E392184A97780099029D /* carro.png */,
-				1E45E393184A97780099029D /* caminhao.png */,
-				1E45E394184A97780099029D /* moto.png */,
-				1E45E38F184A56550099029D /* EERestUtil.m */,
-				1E45E390184A56550099029D /* EERestUtil.h */,
 				C74E1AD1184549D000DCBC0F /* CorePlotHeaders */,
 				A9DFC2C41842AFBD00673EC7 /* Cells */,
 				C749F57F1840D21A00A7AF24 /* EEAppDelegate.h */,
@@ -455,10 +441,7 @@
 			files = (
 				C749F5891840D21A00A7AF24 /* Images.xcassets in Resources */,
 				C749F57B1840D21A00A7AF24 /* InfoPlist.strings in Resources */,
-				1E45E397184A97780099029D /* moto.png in Resources */,
 				C749F5841840D21A00A7AF24 /* Main.storyboard in Resources */,
-				1E45E396184A97780099029D /* caminhao.png in Resources */,
-				1E45E395184A97780099029D /* carro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +467,6 @@
 				A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */,
 				C749F5871840D21A00A7AF24 /* EEViewController.m in Sources */,
 				C749F5811840D21A00A7AF24 /* EEAppDelegate.m in Sources */,
-				1E45E391184A56550099029D /* EERestUtil.m in Sources */,
 				C749F57D1840D21A00A7AF24 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,11 +607,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
 					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
-=======
-					/Users/fabiozoroastro/Applications/Desenvolvimento/Projetos/github/appiosi/fonte/Mercadauto,
->>>>>>> 6ad12b2e3b0fcb511c17c891cdecead514bbd536
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -650,11 +628,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
 					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
-=======
-					/Users/fabiozoroastro/Applications/Desenvolvimento/Projetos/github/appiosi/fonte/Mercadauto,
->>>>>>> 6ad12b2e3b0fcb511c17c891cdecead514bbd536
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
