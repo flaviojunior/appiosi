@@ -12,4 +12,11 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableFiltro;
 @property (weak, nonatomic) IBOutlet UITableView *tableResult;
+
+@property(assign) NSInteger *marca;
+@property(assign) NSInteger *modelo;
+@property(assign) NSInteger *anoModelo;
+
+
+-(void)setValueCellFiltro:(int)tipo valueCell:(NSString *)value :(NSInteger*)idValue;
 @end
