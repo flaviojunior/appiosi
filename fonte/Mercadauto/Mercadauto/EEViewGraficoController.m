@@ -40,7 +40,7 @@
     
     [self buscaDadosPlotagem];
     
-    coresGrafico = [NSArray arrayWithObjects:[CPTColor blueColor],[CPTColor redColor], [CPTColor greenColor], [CPTColor blackColor],nil];
+    coresGrafico = [NSArray arrayWithObjects:[CPTColor blueColor],[CPTColor redColor], [CPTColor greenColor], [CPTColor grayColor],nil];
     
     NSArray *arrayMeses = [self getArrayMeses];
     
@@ -61,16 +61,19 @@
     graph.paddingBottom = 0.0;
     
     graph.plotAreaFrame.paddingTop    = 0.0;
-    graph.plotAreaFrame.paddingBottom = 25.0;
-    graph.plotAreaFrame.paddingLeft   = 50.0;
+    graph.plotAreaFrame.paddingBottom = 0.0;
+    graph.plotAreaFrame.paddingLeft   = 0.0;
     graph.plotAreaFrame.paddingRight  = 0.0;
     
     // Setup plot space
     
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = NO;
-    plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(5.5)];
-    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(max+50000)];
+    plotSpace.allowsUserInteraction = YES;
+    plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1.0) length:CPTDecimalFromFloat(6.5)];
+    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-15000.0) length:CPTDecimalFromFloat(max+70000)];
+    
+    plotSpace.globalXRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-1.0) length:CPTDecimalFromFloat(6.5)];
+    plotSpace.globalYRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-15000.0) length:CPTDecimalFromFloat(max+70000)];
     
     // Axes
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
@@ -104,7 +107,7 @@
                                     nil];
     
     CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
-    hitAnnotationTextStyle.color = [CPTColor blackColor];
+    hitAnnotationTextStyle.color = [CPTColor grayColor];
     hitAnnotationTextStyle.fontSize = 10.0f;
     hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
     x.labelTextStyle = hitAnnotationTextStyle;
@@ -140,7 +143,7 @@
     NSNumberFormatter *nsf = [[NSNumberFormatter alloc] init];
     [nsf setGeneratesDecimalNumbers:NO];
     CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
-    hitAnnotationTextStyle.color = [CPTColor blackColor];
+    hitAnnotationTextStyle.color = [CPTColor grayColor];
     hitAnnotationTextStyle.fontSize = 10.0f;
     hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
     
@@ -255,20 +258,22 @@
 
     boundLinePlot.labelFormatter = nsf;
     CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
-    hitAnnotationTextStyle.color = [CPTColor brownColor];
+    hitAnnotationTextStyle.color = [CPTColor blackColor];
     hitAnnotationTextStyle.fontSize = 10.0f;
     hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
-    
+    boundLinePlot.labelOffset = 6.0;
     boundLinePlot.labelTextStyle = hitAnnotationTextStyle;
+    boundLinePlot.plotSymbolMarginForHitDetection = 18.0;
     [graph addPlot:boundLinePlot];
     
     // Add plot symbols
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
     symbolLineStyle.lineColor = cor;
     CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
-    plotSymbol.fill          = [CPTFill fillWithColor:cor];
+    plotSymbol.fill          = [CPTFill fillWithColor:[CPTColor whiteColor]];
     plotSymbol.lineStyle     = symbolLineStyle;
     plotSymbol.size          = CGSizeMake(5.0, 5.0);
+    
     boundLinePlot.plotSymbol = plotSymbol;
 }
 
@@ -300,13 +305,13 @@
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
     
-    return [[self obterDadosParaGrafico:plot.identifier] count];
+    return [[self obterDadosParaGrafico:(NSString *)plot.identifier] count];
     
 }
 
 -(void) buscaDadosPlotagem{
     NSString *url = @"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=3322,1111,2000,2122";
-    dataForPlot = [EERestUtil request:url];
+    dataForPlot = (NSMutableDictionary *)[EERestUtil request:url];
     min = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMinimo"] intValue];
     max = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMaximo"] intValue];
 }
@@ -319,11 +324,50 @@
 {
     
     NSString *key = (fieldEnum == CPTScatterPlotFieldX ? @"x" : @"y");
-    NSNumber *num = [[[self obterDadosParaGrafico:plot.identifier] objectAtIndex:index] valueForKey:key];
+    NSNumber *num = [[[self obterDadosParaGrafico:(NSString *)plot.identifier] objectAtIndex:index] valueForKey:key];
     
     return num;
 }
 
 
+
+-(void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
+{
+    NSLog(@"teste");
+    NSMutableArray *plotData = [dadosTratados objectForKey:plot.identifier];
+    
+    if ( symbolTextAnnotation ) {
+        [graph.plotAreaFrame.plotArea removeAnnotation:symbolTextAnnotation];
+        symbolTextAnnotation = nil;
+    }
+    
+    // Setup a style for the annotation
+    CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
+    hitAnnotationTextStyle.color    = [CPTColor blackColor];
+    hitAnnotationTextStyle.fontSize = 16.0f;
+    hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
+    
+    // Determine point of symbol in plot coordinates
+    NSNumber *x          = [[plotData objectAtIndex:index] valueForKey:@"x"];
+    NSNumber *y          = [[plotData objectAtIndex:index] valueForKey:@"y"];
+    NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
+    
+    // Add annotation
+    // First make a string for the y value
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setMaximumFractionDigits:2];
+    NSString *yString =  [[NSString alloc] initWithFormat:@"R$ %.2f",[y floatValue]];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:(NSString *)plot.identifier message:yString
+												   delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+    // Now add the annotation to the plot area
+//    CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:yString style:hitAnnotationTextStyle];
+//    symbolTextAnnotation              = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
+//    symbolTextAnnotation.contentLayer = textLayer;
+//    symbolTextAnnotation.displacement = CGPointMake(0.0f, 20.0f);
+//    [graph.plotAreaFrame.plotArea addAnnotation:symbolTextAnnotation];
+    
+}
 
 @end

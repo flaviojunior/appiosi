@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
 
-@interface EEViewGraficoController : UIViewController<CPTPlotDataSource, CPTAxisDelegate>{
+@interface EEViewGraficoController : UIViewController<CPTPlotDataSource, CPTScatterPlotDelegate, CPTPlotSpaceDelegate>{
     CPTXYGraph *graph;
     NSMutableArray *modelosPesquisa;
     NSArray *coresGrafico;
     NSMutableDictionary *dataForPlot;
     NSMutableDictionary *dadosTratados;
+    CPTPlotSpaceAnnotation *symbolTextAnnotation;
     int max,min;
 }
 
