@@ -40,6 +40,8 @@
     
     [self buscaDadosPlotagem];
     
+    coresGrafico = [NSArray arrayWithObjects:[CPTColor blueColor],[CPTColor redColor], [CPTColor greenColor], [CPTColor blackColor],nil];
+    
     NSArray *arrayMeses = [self getArrayMeses];
     
     // Create graph from theme
@@ -59,16 +61,16 @@
     graph.paddingBottom = 0.0;
     
     graph.plotAreaFrame.paddingTop    = 0.0;
-    graph.plotAreaFrame.paddingBottom = 50.0;
-    graph.plotAreaFrame.paddingLeft   = 45.0;
-    graph.plotAreaFrame.paddingRight  = 25.0;
+    graph.plotAreaFrame.paddingBottom = 25.0;
+    graph.plotAreaFrame.paddingLeft   = 50.0;
+    graph.plotAreaFrame.paddingRight  = 0.0;
     
     // Setup plot space
     
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.allowsUserInteraction = YES;
+    plotSpace.allowsUserInteraction = NO;
     plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(5.5)];
-    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(min/1000) length:CPTDecimalFromFloat((max-min)/1000)];
+    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(max+50000)];
     
     // Axes
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
@@ -85,7 +87,7 @@
 -(void) configuraEixoX:(CPTXYAxisSet *) axisSet arrayLabels:(NSArray *) xAxisLabels{
     CPTXYAxis *x          = axisSet.xAxis;
     x.majorIntervalLength         = CPTDecimalFromString(@"1");
-    x.orthogonalCoordinateDecimal = CPTDecimalFromString([NSString stringWithFormat:@"%d",min/1000]);
+    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
     x.minorTicksPerInterval       = 0;
     
     //Eixo com os meses
@@ -101,6 +103,12 @@
                                     [NSDecimalNumber numberWithInt:5],
                                     nil];
     
+    CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
+    hitAnnotationTextStyle.color = [CPTColor blackColor];
+    hitAnnotationTextStyle.fontSize = 10.0f;
+    hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
+    x.labelTextStyle = hitAnnotationTextStyle;
+
     
     NSUInteger labelLocation = 0;
     NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[xAxisLabels count]];
@@ -110,25 +118,34 @@
                                   initWithText: [[xAxisLabels objectAtIndex:labelLocation++] objectForKey:@"nome"]
                                   textStyle:x.labelTextStyle];
         newLabel.tickLocation = [tickLocation decimalValue];
-        newLabel.offset = x.labelOffset + x.majorTickLength;
+        newLabel.offset = x.labelOffset;
         newLabel.rotation = M_PI/4;
         [customLabels addObject:newLabel];
         //[newLabel release];
     }
     
-    x.axisLabels =  [NSSet setWithArray:customLabels];
+        x.axisLabels =  [NSSet setWithArray:customLabels];
 }
 
 -(void) configuraEixoY:(CPTXYAxisSet *) axisSet{
     CPTXYAxis *y = axisSet.yAxis;
-    y.majorIntervalLength         = CPTDecimalFromString(@"10");
+    y.majorIntervalLength         = CPTDecimalFromString(@"20000");
 
     y.minorTicksPerInterval       = 0;
     y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-    
-    
+    y.labelExclusionRanges = [NSArray arrayWithObject:
+                              [[CPTPlotRange alloc] initWithLocation:CPTDecimalFromFloat(-1000000) length:CPTDecimalFromFloat(1000000)]
+                              ];
     y.delegate             = self;
-
+    NSNumberFormatter *nsf = [[NSNumberFormatter alloc] init];
+    [nsf setGeneratesDecimalNumbers:NO];
+    CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
+    hitAnnotationTextStyle.color = [CPTColor blackColor];
+    hitAnnotationTextStyle.fontSize = 10.0f;
+    hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
+    
+    y.labelFormatter = nsf;
+    y.labelTextStyle = hitAnnotationTextStyle;
 }
 
 
@@ -148,7 +165,7 @@
         [label appendString:ano];
         
         // *** Iterar sobre as tendencias valores
-        [self criaTendencia:label cor:[CPTColor redColor]];
+        [self criaTendencia:label cor:[coresGrafico objectAtIndex:[veiculos indexOfObject:v]%4]];
         
         
         NSMutableArray *valores = [v objectForKey:@"grafico"];
@@ -172,7 +189,7 @@
                 }
             }
             id x = [NSNumber numberWithFloat:count++];
-            id y =  (existe) ? [NSNumber numberWithInt:[valor intValue]] : nil;
+            id y =  (existe) ? [NSNumber numberWithFloat:[valor floatValue]] : nil;
             
             [pontos addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
             
@@ -232,13 +249,24 @@
     boundLinePlot.dataLineStyle = lineStyle;
     boundLinePlot.identifier    = idTendencia;
     boundLinePlot.dataSource    = self;
+    boundLinePlot.delegate = self;
+    NSNumberFormatter *nsf = [[NSNumberFormatter alloc] init];
+    [nsf setGeneratesDecimalNumbers:NO];
+
+    boundLinePlot.labelFormatter = nsf;
+    CPTMutableTextStyle *hitAnnotationTextStyle = [CPTMutableTextStyle textStyle];
+    hitAnnotationTextStyle.color = [CPTColor brownColor];
+    hitAnnotationTextStyle.fontSize = 10.0f;
+    hitAnnotationTextStyle.fontName = @"Helvetica-Bold";
+    
+    boundLinePlot.labelTextStyle = hitAnnotationTextStyle;
     [graph addPlot:boundLinePlot];
     
     // Add plot symbols
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle.lineColor = [CPTColor blackColor];
+    symbolLineStyle.lineColor = cor;
     CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
-    plotSymbol.fill          = [CPTFill fillWithColor:[CPTColor blueColor]];
+    plotSymbol.fill          = [CPTFill fillWithColor:cor];
     plotSymbol.lineStyle     = symbolLineStyle;
     plotSymbol.size          = CGSizeMake(5.0, 5.0);
     boundLinePlot.plotSymbol = plotSymbol;
@@ -277,7 +305,7 @@
 }
 
 -(void) buscaDadosPlotagem{
-    NSString *url = @"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=3322,3323";
+    NSString *url = @"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=3322,1111,2000,2122";
     dataForPlot = [EERestUtil request:url];
     min = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMinimo"] intValue];
     max = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMaximo"] intValue];
@@ -285,10 +313,6 @@
 
 -(void) setDadosComparacao:(NSMutableArray *) v{
     modelosPesquisa = v;
-    
-    
-    
-    
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
@@ -299,5 +323,7 @@
     
     return num;
 }
+
+
 
 @end

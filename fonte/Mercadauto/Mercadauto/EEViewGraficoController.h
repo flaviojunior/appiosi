@@ -12,6 +12,7 @@
 @interface EEViewGraficoController : UIViewController<CPTPlotDataSource, CPTAxisDelegate>{
     CPTXYGraph *graph;
     NSMutableArray *modelosPesquisa;
+    NSArray *coresGrafico;
     NSMutableDictionary *dataForPlot;
     NSMutableDictionary *dadosTratados;
     int max,min;

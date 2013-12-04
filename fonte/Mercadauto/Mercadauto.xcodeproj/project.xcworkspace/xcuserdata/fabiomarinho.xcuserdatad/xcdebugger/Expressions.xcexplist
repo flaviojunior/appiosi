@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[EEViewGraficoController scatterPlot:plotSymbolWasSelectedAtRecordIndex:]:EEViewGraficoController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "plot.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
