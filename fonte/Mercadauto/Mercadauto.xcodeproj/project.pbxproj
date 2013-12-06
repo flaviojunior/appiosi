@@ -11,6 +11,7 @@
 		1E45E395184A97780099029D /* carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E392184A97780099029D /* carro.png */; };
 		1E45E396184A97780099029D /* caminhao.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E393184A97780099029D /* caminhao.png */; };
 		1E45E397184A97780099029D /* moto.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E394184A97780099029D /* moto.png */; };
+		21B038D3184FB8F100F51FE9 /* EEViewTabelaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B038D2184FB8F100F51FE9 /* EEViewTabelaController.m */; };
 		A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */; };
 		A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */; };
 		A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */; };
@@ -51,6 +52,8 @@
 		1E45E392184A97780099029D /* carro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carro.png; sourceTree = "<group>"; };
 		1E45E393184A97780099029D /* caminhao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caminhao.png; sourceTree = "<group>"; };
 		1E45E394184A97780099029D /* moto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto.png; sourceTree = "<group>"; };
+		21B038D1184FB8F100F51FE9 /* EEViewTabelaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEViewTabelaController.h; sourceTree = "<group>"; };
+		21B038D2184FB8F100F51FE9 /* EEViewTabelaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEViewTabelaController.m; sourceTree = "<group>"; };
 		A942EBEE184A3B0A000A7880 /* EETableSelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETableSelectItemViewController.h; sourceTree = "<group>"; };
 		A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETableSelectItemViewController.m; sourceTree = "<group>"; };
 		A9DFC2C51842AFE400673EC7 /* EECellOpcoesFiltro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECellOpcoesFiltro.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				1E45E393184A97780099029D /* caminhao.png */,
 				1E45E394184A97780099029D /* moto.png */,
 				1E45E38F184A56550099029D /* EERestUtil.m */,
+				21B038D1184FB8F100F51FE9 /* EEViewTabelaController.h */,
+				21B038D2184FB8F100F51FE9 /* EEViewTabelaController.m */,
 				1E45E390184A56550099029D /* EERestUtil.h */,
 				C74E1AD1184549D000DCBC0F /* CorePlotHeaders */,
 				A9DFC2C41842AFBD00673EC7 /* Cells */,
@@ -480,6 +485,7 @@
 				A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */,
 				C74E190C18453A1800DCBC0F /* EEViewGraficoController.m in Sources */,
 				A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */,
+				21B038D3184FB8F100F51FE9 /* EEViewTabelaController.m in Sources */,
 				C749F5A71840DB4000A7AF24 /* EEEscolhaTipoViewController.m in Sources */,
 				A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */,
 				C749F5871840D21A00A7AF24 /* EEViewController.m in Sources */,
@@ -625,7 +631,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
+					/Users/leonardofreitas/Documents/IOS_APP/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -646,7 +652,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
+					/Users/leonardofreitas/Documents/IOS_APP/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
