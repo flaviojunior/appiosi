@@ -684,6 +684,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/danilo/Dropbox/MBA/IOS/auto/appiosi/fonte/Mercadauto,
+					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -705,6 +706,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/danilo/Dropbox/MBA/IOS/auto/appiosi/fonte/Mercadauto,
+					/Users/fabiomarinho/Documents/Desenvolvimento/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

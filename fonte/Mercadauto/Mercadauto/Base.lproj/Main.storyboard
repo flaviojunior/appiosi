@@ -55,7 +55,7 @@
         <!--View Select Auto - Escolha de marca, modelo, ano-->
         <scene sceneID="JeZ-PJ-zgv">
             <objects>
-                <viewController title="Escolha de marca, modelo, ano" id="3a4-pF-hky" customClass="EEViewSelectAuto" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EEViewSelectAuto" title="Escolha de marca, modelo, ano" id="3a4-pF-hky" customClass="EEViewSelectAuto" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y97-ga-JaZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Ef9-Ra-err"/>
@@ -258,7 +258,7 @@
         <!--View Tabela Controller-->
         <scene sceneID="mmD-8d-o9J">
             <objects>
-                <tableViewController id="ZtN-Jq-nlW" customClass="EEViewTabelaController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EEViewTabelaController" id="ZtN-Jq-nlW" customClass="EEViewTabelaController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HPc-Yn-10L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
         <!--View Grafico Controller-->
         <scene sceneID="gvR-2k-NaD">
             <objects>
-                <viewController id="WGS-zs-nXb" customClass="EEViewGraficoController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EEViewgraficoController" id="WGS-zs-nXb" customClass="EEViewGraficoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UoM-4N-Sgl"/>
                         <viewControllerLayoutGuide type="bottom" id="mbZ-B2-YjV"/>
