@@ -101,7 +101,9 @@
     
     NSString *desc = [NSString stringWithFormat:@"%@",[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"descricao"] ];
     
-    if (![desc isEqualToString:@"<null>"]) {
+    NSString *id_ =[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"id"];
+    
+    if (![desc isEqualToString:@"<null>"] && ![id_ isEqualToString:@"<null>"]) {
         
         cell.textLabel.text = desc;
         cell.tag = [[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
