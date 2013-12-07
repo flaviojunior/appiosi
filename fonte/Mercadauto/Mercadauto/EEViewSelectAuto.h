@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableFiltro;
 @property (weak, nonatomic) IBOutlet UITableView *tableResult;
 
+- (IBAction)addVeiculoComparacao:(id)sender;
+- (IBAction)btnGrafico:(id)sender;
+- (IBAction)btnTabela:(id)sender;
+
 @property(assign) NSInteger *marca;
 @property(assign) NSInteger *modelo;
 @property(assign) NSInteger *anoModelo;

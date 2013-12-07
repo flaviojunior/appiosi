@@ -38,6 +38,11 @@
     self.tabelaPrincipal.rowHeight = 50;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = YES;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -97,7 +102,7 @@ numberOfRowsInSection:(NSInteger)section {
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    EEViewSelectAuto * viewauto = [self.storyboard instantiateViewControllerWithIdentifier:@"EEViewSelectAuto" ];
+    EEViewSelectAuto * viewauto = (EEViewSelectAuto *)[self.storyboard instantiateViewControllerWithIdentifier:@"EEViewSelectAuto"];
     [self.navigationController pushViewController:viewauto animated:YES];
     
     [self.tabelaPrincipal deselectRowAtIndexPath:indexPath animated:YES];

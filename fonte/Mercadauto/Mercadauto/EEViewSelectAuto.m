@@ -9,6 +9,8 @@
 #import "EEViewSelectAuto.h"
 #import "EECellOpcoesFiltro.h"
 #import "EETableSelectItemViewController.h"
+#import "EECellVeiculoFiltro.h"
+#import "EEViewGraficoController.h"
 
 @interface EEViewSelectAuto ()
 
@@ -17,6 +19,7 @@
 @implementation EEViewSelectAuto
 
 EETableSelectItemViewController *tableSelectItem;
+static NSMutableArray *arrayVeiculosComparacao;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +33,14 @@ EETableSelectItemViewController *tableSelectItem;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    arrayVeiculosComparacao = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +58,9 @@ EETableSelectItemViewController *tableSelectItem;
 {
     if([tableView isEqual:_tableFiltro])
         return 3;
+    else
+        if ([tableView isEqual:_tableResult])
+            return arrayVeiculosComparacao.count;
     
     return 0;
 }
@@ -58,35 +71,57 @@ EETableSelectItemViewController *tableSelectItem;
     if([tableView isEqual:_tableFiltro])
     {
         static NSString *CellIdentifier = @"EECellOpcoesFiltro";
-    
+        
         EECellOpcoesFiltro *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+        
         if (cell == nil)
         {
-        
+            
             cell = [[EECellOpcoesFiltro alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-    
+        
         if (indexPath.row == 0)
         {
-            cell.labelName.text = @"Marca:";
+            cell.labelName.text = @"Marca";
         }
         else
         {
             if (indexPath.row == 1)
             {
-                 cell.labelName.text = @"Modelo:";
+                cell.labelName.text = @"Modelo";
             }
             else
             {
                 if (indexPath.row == 2)
                 {
-                 cell.labelName.text = @"Ano:";
+                    cell.labelName.text = @"Ano";
                 }
             }
         }
         
         return cell;
+    }
+    else
+    {
+        if ([tableView isEqual:_tableResult])
+        {
+            static NSString *CellIdentifier = @"EECellVeiculoFiltro";
+            
+            EECellVeiculoFiltro *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            
+            if (cell == nil) {
+                
+                cell = [[EECellVeiculoFiltro alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            }
+            
+            NSMutableDictionary *veiculo = [arrayVeiculosComparacao objectAtIndex:indexPath.row];
+            
+            cell.labelMarca.text = [veiculo valueForKey:@"Marca"];
+            cell.labelModelo.text = [veiculo valueForKey:@"Modelo"];
+            cell.labelAno.text = [veiculo valueForKey:@"Ano"];
+            
+            return cell;
+        }
     }
     
     return nil;
@@ -95,6 +130,9 @@ EETableSelectItemViewController *tableSelectItem;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if([tableView isEqual:_tableResult])
+        return 82;
+    
     return 44;
 }
 
@@ -135,4 +173,53 @@ EETableSelectItemViewController *tableSelectItem;
     [cell reloadInputViews];
 }
 
+- (IBAction)addVeiculoComparacao:(id)sender {
+    
+    
+    if(arrayVeiculosComparacao.count < 2)
+    {
+        NSMutableDictionary *dictionaryVeiculo = [[NSMutableDictionary alloc]init];
+        
+        for (int i = 0; i < 3; i++)
+        {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            EECellOpcoesFiltro *cell = (EECellOpcoesFiltro *)[_tableFiltro cellForRowAtIndexPath:indexPath];
+            
+            [dictionaryVeiculo setObject:cell.labelValue.text forKey:cell.labelName.text];
+        }
+        
+        [arrayVeiculosComparacao addObject:dictionaryVeiculo];
+        
+        [_tableResult reloadData];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Alerta" message:@"É permitido comparar apenas dois veículos" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle==UITableViewCellEditingStyleDelete)
+    {
+        [arrayVeiculosComparacao removeObjectAtIndex:indexPath.row];
+    }
+    
+    [tableView reloadData];
+}
+
+- (IBAction)btnGrafico:(id)sender {
+    
+    EEViewGraficoController *graficoController = (EEViewGraficoController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EEViewGraficoController"];
+    
+    [graficoController setDadosComparacao:arrayVeiculosComparacao];
+}
+
+- (IBAction)btnTabela:(id)sender {
+    
+    EEViewGraficoController *graficoController = (EEViewGraficoController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EEViewGraficoController"];
+    
+    [graficoController setDadosComparacao:arrayVeiculosComparacao];
+}
 @end
