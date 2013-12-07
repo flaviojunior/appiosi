@@ -68,6 +68,7 @@
     //NSLog(@"item %d", respostaJSON.count);
     
     NSMutableArray *veiculos = [respostaJSON objectForKey:@"veiculos"];
+    meses = [veiculos[0] objectForKey:@"meses"];
     
     
     //NSLog(@"valores %d", veiculos.count);
@@ -127,40 +128,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    
-    NSMutableString *modelosString = [[NSMutableString alloc]init];
-    
-    for(NSMutableDictionary *veiculo in modelos)
-    {
-        if(![modelosString isEqualToString:@""])
-            [modelosString appendString:@","];
-        
-        [modelosString appendString:[veiculo objectForKey:@"Ano"]];
-    }
-    
-    
-    NSString *stringUrl = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=%@", modelosString];
-    
-    NSURL *url = [NSURL URLWithString:stringUrl];
-    // Submetendo a requisição sem o NSMutableURLRequest, assim vai com GET.
-    NSError *error;
-    NSData *resultado = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-    
-    // Verificando a ocorrência de erros HTTP.
-    if(error){
-        NSLog(@"Erro HTTP: %@", error.description);
-        //return nil;
-    }
-    
-    // Acessando o elemento "data" da estrutura retornada pelo serviço.
-    NSDictionary *respostaJSON = [NSJSONSerialization JSONObjectWithData:resultado options:kNilOptions error:nil];
-    //NSLog(@"item %d", respostaJSON.count);
-    
-    NSArray *veiculos = [respostaJSON objectForKey:@"veiculos"];
-    
-    NSArray *meses = [veiculos[0] objectForKey:@"meses"];
-    //NSLog(@"meses %d", meses.count);
-    
+
     return meses[section];
     
 }

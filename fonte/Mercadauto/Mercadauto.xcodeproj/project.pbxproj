@@ -690,7 +690,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
-					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
+					/Users/leonardofreitas/Documents/IOS_APP/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -712,7 +712,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
-					/Users/pedrofariasbarbosa/Github/appiosi/fonte/Mercadauto,
+					/Users/leonardofreitas/Documents/IOS_APP/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
