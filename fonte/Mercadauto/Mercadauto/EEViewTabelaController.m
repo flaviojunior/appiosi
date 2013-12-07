@@ -33,10 +33,25 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     dataArray = [[NSMutableArray alloc] init];
     
+    NSMutableString *modelosString = [[NSMutableString alloc]init];
     
-    NSString *stringUrl = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=%@", @"3322,3321"];
+    for(NSMutableDictionary *veiculo in modelos)
+    {
+        if(![modelosString isEqualToString:@""])
+            [modelosString appendString:@","];
+        
+        [modelosString appendString:[veiculo objectForKey:@"Ano"]];
+    }
+    
+    
+    NSString *stringUrl = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=%@", modelosString];
+    
     NSURL *url = [NSURL URLWithString:stringUrl];
     // Submetendo a requisição sem o NSMutableURLRequest, assim vai com GET.
     NSError *error;
@@ -56,32 +71,32 @@
     
     
     //NSLog(@"valores %d", veiculos.count);
-
-
+    
+    
     NSMutableString *completo;
     
     for (int y=0; y < 6; y++) {
         
         NSMutableArray *carros = [[NSMutableArray alloc] init];
-    
+        
         for(int i=0; i < [veiculos count]; i++){
-        
+            
             NSMutableArray *valores = [veiculos[i] objectForKey:@"grafico"];
-        
-
+            
+            
             NSString *modelo = [veiculos[i] objectForKey:@"modelo"];
             NSString *ano = [veiculos[i] objectForKey:@"ano_versao"];
             NSMutableString *label = [NSMutableString stringWithString:modelo ];
             [label appendString:@"-"];
             [label appendString:ano];
-    
-
+            
+            
             completo = [NSMutableString stringWithString:label];
             [completo appendString:@"      R$ "];
             [completo appendString:[valores[y] objectForKey:@"valor"]];
             
-
-             [carros addObject: completo];
+            
+            [carros addObject: completo];
             
         }
         
@@ -89,9 +104,8 @@
         NSDictionary *mesArray = [NSDictionary dictionaryWithObject:mes forKey:@"data"];
         [dataArray  addObject:mesArray];
         
-            
+        
     }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,7 +128,19 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     
-    NSString *stringUrl = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=%@", @"3322,3321"];
+    NSMutableString *modelosString = [[NSMutableString alloc]init];
+    
+    for(NSMutableDictionary *veiculo in modelos)
+    {
+        if(![modelosString isEqualToString:@""])
+            [modelosString appendString:@","];
+        
+        [modelosString appendString:[veiculo objectForKey:@"Ano"]];
+    }
+    
+    
+    NSString *stringUrl = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=%@", modelosString];
+    
     NSURL *url = [NSURL URLWithString:stringUrl];
     // Submetendo a requisição sem o NSMutableURLRequest, assim vai com GET.
     NSError *error;
@@ -239,5 +265,14 @@
 }
 
  */
+
+-(void) setDadosComparacao:(NSMutableArray *) v{
+    
+    if (modelos == nil)
+    {
+        modelos = [[NSMutableArray alloc]init];
+    }
+    modelos = v;
+}
 
 @end

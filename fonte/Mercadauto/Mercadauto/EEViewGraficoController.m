@@ -8,9 +8,11 @@
 
 #import "EEViewGraficoController.h"
 #import "EERestUtil.h"
+#import "EEViewSelectAuto.h"
 
 
 @implementation EEViewGraficoController
+@synthesize  modelosPesquisa;
 
 @synthesize dataForPlot;
 
@@ -37,7 +39,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     [self buscaDadosPlotagem];
     
     coresGrafico = [NSArray arrayWithObjects:[CPTColor blueColor],[CPTColor redColor], [CPTColor greenColor], [CPTColor grayColor],nil];
@@ -84,7 +89,6 @@
     
     
     [self geraValoresGrafico: arrayMeses];
-    
 }
 
 -(void) configuraEixoX:(CPTXYAxisSet *) axisSet arrayLabels:(NSArray *) xAxisLabels{
@@ -310,13 +314,30 @@
 }
 
 -(void) buscaDadosPlotagem{
-    NSString *url = @"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=3322,1111,2000,2122";
+    
+    NSMutableString *modelos = [[NSMutableString alloc]init];
+    
+    for(NSMutableDictionary *veiculo in modelosPesquisa)
+    {
+        if(![modelos isEqualToString:@""])
+            [modelos appendString:@","];
+        
+        [modelos appendString:[veiculo objectForKey:@"Ano"]];
+    }
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.flaviojunior.com.br/mercadauto/json/jsongraph.php?v=%@",modelos];
+    
     dataForPlot = (NSMutableDictionary *)[EERestUtil request:url];
     min = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMinimo"] intValue];
     max = [[[dataForPlot objectForKey:@"limites"] objectForKey:@"valorMaximo"] intValue];
 }
 
 -(void) setDadosComparacao:(NSMutableArray *) v{
+    
+    if (modelosPesquisa == nil)
+    {
+        modelosPesquisa = [[NSMutableArray alloc]init];
+    }
     modelosPesquisa = v;
 }
 

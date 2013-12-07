@@ -11,15 +11,17 @@
 #import "EETableSelectItemViewController.h"
 #import "EECellVeiculoFiltro.h"
 #import "EEViewGraficoController.h"
+#import "EEViewTabelaController.h"
 
 @interface EEViewSelectAuto ()
 
 @end
 
 @implementation EEViewSelectAuto
+@synthesize arrayVeiculosComparacao;
 
 EETableSelectItemViewController *tableSelectItem;
-static NSMutableArray *arrayVeiculosComparacao;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -185,7 +187,15 @@ static NSMutableArray *arrayVeiculosComparacao;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
             EECellOpcoesFiltro *cell = (EECellOpcoesFiltro *)[_tableFiltro cellForRowAtIndexPath:indexPath];
             
-            [dictionaryVeiculo setObject:cell.labelValue.text forKey:cell.labelName.text];
+            if ([cell.labelName.text isEqualToString:@"Ano"])
+            {
+                int i = self.anoModelo;
+                [dictionaryVeiculo setObject:[NSString stringWithFormat:@"%d",i] forKey:cell.labelName.text];
+            }
+            else
+            {
+                [dictionaryVeiculo setObject:cell.labelValue.text forKey:cell.labelName.text];
+            }
         }
         
         [arrayVeiculosComparacao addObject:dictionaryVeiculo];
@@ -213,13 +223,17 @@ static NSMutableArray *arrayVeiculosComparacao;
     
     EEViewGraficoController *graficoController = (EEViewGraficoController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EEViewGraficoController"];
     
+    [self.navigationController pushViewController:graficoController animated:YES];
+    
     [graficoController setDadosComparacao:arrayVeiculosComparacao];
 }
 
 - (IBAction)btnTabela:(id)sender {
     
-    EEViewGraficoController *graficoController = (EEViewGraficoController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EEViewGraficoController"];
+    EEViewTabelaController *tabelaController = (EEViewTabelaController *)[self.storyboard instantiateViewControllerWithIdentifier:@"EEViewTabelaController"];
     
-    [graficoController setDadosComparacao:arrayVeiculosComparacao];
+    [self.navigationController pushViewController:tabelaController animated:YES];
+    
+    [tabelaController setDadosComparacao:arrayVeiculosComparacao];
 }
 @end

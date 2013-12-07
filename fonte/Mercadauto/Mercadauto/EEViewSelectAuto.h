@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableFiltro;
 @property (weak, nonatomic) IBOutlet UITableView *tableResult;
+@property (strong,nonatomic) NSMutableArray *arrayVeiculosComparacao;
 
 - (IBAction)addVeiculoComparacao:(id)sender;
 - (IBAction)btnGrafico:(id)sender;

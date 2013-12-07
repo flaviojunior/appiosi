@@ -12,6 +12,9 @@
 {
     IBOutlet UITableView *mainTable;
     NSMutableArray *dataArray;
+    NSMutableArray *modelos;
 }
 
+@property(nonatomic,strong) NSMutableArray *modelos;
+-(void) setDadosComparacao:(NSMutableArray *) modelosPesquisa;
 @end

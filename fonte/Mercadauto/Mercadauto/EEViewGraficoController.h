@@ -19,6 +19,7 @@
     int max,min;
 }
 
+@property (strong,nonatomic) NSMutableArray *modelosPesquisa;
 @property (readwrite, strong, nonatomic) NSMutableDictionary *dataForPlot;
 
 -(void) setDadosComparacao:(NSMutableArray *) modelosPesquisa;
