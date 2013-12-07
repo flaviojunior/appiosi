@@ -97,11 +97,15 @@
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
     }
     
-    cell.textLabel.text = [[arrayItens objectAtIndex:indexPath.row] objectForKey:@"descricao"];
-    cell.tag = [[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
+    NSString *desc = [NSString stringWithFormat:@"%@",[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"descricao"] ];
+    
+    if (![desc isEqualToString:@"<null>"]) {
+        
+        cell.textLabel.text = desc;
+        cell.tag = [[[arrayItens objectAtIndex:indexPath.row] objectForKey:@"id"] intValue];
+    }
     
     return cell;
 }
