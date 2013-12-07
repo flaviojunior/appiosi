@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EEEscolhaTipoViewController : UIViewController
+@interface EEEscolhaTipoViewController : UIViewController <UITableViewDelegate,UITableViewDataSource> {
+    
+    NSMutableArray *menu;
+}
 @property (weak, nonatomic) IBOutlet UIButton *botaoCarro;
 @property (weak, nonatomic) IBOutlet UIButton *botaoMoto;
 @property (weak, nonatomic) IBOutlet UIButton *botaoCaminhao;
+
+@property (weak, nonatomic) IBOutlet UITableView *tabelaPrincipal;
 
 @end

@@ -12,6 +12,12 @@
 		1E45E396184A97780099029D /* caminhao.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E393184A97780099029D /* caminhao.png */; };
 		1E45E397184A97780099029D /* moto.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E45E394184A97780099029D /* moto.png */; };
 		21B038D3184FB8F100F51FE9 /* EEViewTabelaController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B038D2184FB8F100F51FE9 /* EEViewTabelaController.m */; };
+		9F9E8B481852C0F900E34180 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E8B471852C0F900E34180 /* Background@2x.png */; };
+		9F9E8B4C1852C2CB00E34180 /* Principal.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E8B491852C2CB00E34180 /* Principal.plist */; };
+		9F9E8B4D1852C2CB00E34180 /* EEPrincipal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9E8B4B1852C2CB00E34180 /* EEPrincipal.m */; };
+		9F9E8B511852C65300E34180 /* icones-menu_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E8B4E1852C65300E34180 /* icones-menu_1.png */; };
+		9F9E8B521852C65300E34180 /* icones-menu_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E8B4F1852C65300E34180 /* icones-menu_2.png */; };
+		9F9E8B531852C65300E34180 /* icones-menu_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F9E8B501852C65300E34180 /* icones-menu_3.png */; };
 		A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */; };
 		A9DFC2C71842AFE400673EC7 /* EECellOpcoesFiltro.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C61842AFE400673EC7 /* EECellOpcoesFiltro.m */; };
 		A9DFC2CA1842B0AE00673EC7 /* EEViewSelectAuto.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */; };
@@ -54,6 +60,14 @@
 		1E45E394184A97780099029D /* moto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moto.png; sourceTree = "<group>"; };
 		21B038D1184FB8F100F51FE9 /* EEViewTabelaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEViewTabelaController.h; sourceTree = "<group>"; };
 		21B038D2184FB8F100F51FE9 /* EEViewTabelaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEViewTabelaController.m; sourceTree = "<group>"; };
+		9F9E8B471852C0F900E34180 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		9F9E8B491852C2CB00E34180 /* Principal.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Principal.plist; sourceTree = "<group>"; };
+		9F9E8B4A1852C2CB00E34180 /* EEPrincipal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPrincipal.h; sourceTree = "<group>"; };
+		9F9E8B4B1852C2CB00E34180 /* EEPrincipal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPrincipal.m; sourceTree = "<group>"; };
+		9F9E8B4E1852C65300E34180 /* icones-menu_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icones-menu_1.png"; sourceTree = "<group>"; };
+		9F9E8B4F1852C65300E34180 /* icones-menu_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icones-menu_2.png"; sourceTree = "<group>"; };
+		9F9E8B501852C65300E34180 /* icones-menu_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icones-menu_3.png"; sourceTree = "<group>"; };
+		9F9E8B551852C74700E34180 /* nimbus_sans_becker_pultlig.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nimbus_sans_becker_pultlig.ttf; sourceTree = "<group>"; };
 		A942EBEE184A3B0A000A7880 /* EETableSelectItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETableSelectItemViewController.h; sourceTree = "<group>"; };
 		A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETableSelectItemViewController.m; sourceTree = "<group>"; };
 		A9DFC2C51842AFE400673EC7 /* EECellOpcoesFiltro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EECellOpcoesFiltro.h; sourceTree = "<group>"; };
@@ -193,6 +207,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F9E8B451852C08700E34180 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E8B541852C73000E34180 /* Fontes */,
+				9F9E8B461852C0C800E34180 /* Imagens */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		9F9E8B461852C0C800E34180 /* Imagens */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E8B4E1852C65300E34180 /* icones-menu_1.png */,
+				9F9E8B4F1852C65300E34180 /* icones-menu_2.png */,
+				9F9E8B501852C65300E34180 /* icones-menu_3.png */,
+				9F9E8B471852C0F900E34180 /* Background@2x.png */,
+			);
+			name = Imagens;
+			sourceTree = "<group>";
+		};
+		9F9E8B541852C73000E34180 /* Fontes */ = {
+			isa = PBXGroup;
+			children = (
+				9F9E8B551852C74700E34180 /* nimbus_sans_becker_pultlig.ttf */,
+			);
+			name = Fontes;
+			sourceTree = "<group>";
+		};
 		A9DFC2C41842AFBD00673EC7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +280,7 @@
 		C749F5761840D21A00A7AF24 /* Mercadauto */ = {
 			isa = PBXGroup;
 			children = (
+				9F9E8B451852C08700E34180 /* Resource */,
 				1E45E392184A97780099029D /* carro.png */,
 				1E45E393184A97780099029D /* caminhao.png */,
 				1E45E394184A97780099029D /* moto.png */,
@@ -262,6 +305,9 @@
 				A9DFC2C91842B0AE00673EC7 /* EEViewSelectAuto.m */,
 				A942EBEE184A3B0A000A7880 /* EETableSelectItemViewController.h */,
 				A942EBEF184A3B0A000A7880 /* EETableSelectItemViewController.m */,
+				9F9E8B491852C2CB00E34180 /* Principal.plist */,
+				9F9E8B4A1852C2CB00E34180 /* EEPrincipal.h */,
+				9F9E8B4B1852C2CB00E34180 /* EEPrincipal.m */,
 			);
 			path = Mercadauto;
 			sourceTree = "<group>";
@@ -459,10 +505,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C749F5891840D21A00A7AF24 /* Images.xcassets in Resources */,
+				9F9E8B481852C0F900E34180 /* Background@2x.png in Resources */,
+				9F9E8B521852C65300E34180 /* icones-menu_2.png in Resources */,
 				C749F57B1840D21A00A7AF24 /* InfoPlist.strings in Resources */,
+				9F9E8B4C1852C2CB00E34180 /* Principal.plist in Resources */,
 				1E45E397184A97780099029D /* moto.png in Resources */,
 				C749F5841840D21A00A7AF24 /* Main.storyboard in Resources */,
 				1E45E396184A97780099029D /* caminhao.png in Resources */,
+				9F9E8B511852C65300E34180 /* icones-menu_1.png in Resources */,
+				9F9E8B531852C65300E34180 /* icones-menu_3.png in Resources */,
 				1E45E395184A97780099029D /* carro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +539,7 @@
 				21B038D3184FB8F100F51FE9 /* EEViewTabelaController.m in Sources */,
 				C749F5A71840DB4000A7AF24 /* EEEscolhaTipoViewController.m in Sources */,
 				A942EBF0184A3B0A000A7880 /* EETableSelectItemViewController.m in Sources */,
+				9F9E8B4D1852C2CB00E34180 /* EEPrincipal.m in Sources */,
 				C749F5871840D21A00A7AF24 /* EEViewController.m in Sources */,
 				C749F5811840D21A00A7AF24 /* EEAppDelegate.m in Sources */,
 				1E45E391184A56550099029D /* EERestUtil.m in Sources */,
@@ -631,7 +683,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/leonardofreitas/Documents/IOS_APP/appiosi/fonte/Mercadauto,
+					/Users/danilo/Dropbox/MBA/IOS/auto/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -652,7 +704,7 @@
 				INFOPLIST_FILE = "Mercadauto/Mercadauto-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/leonardofreitas/Documents/IOS_APP/appiosi/fonte/Mercadauto,
+					/Users/danilo/Dropbox/MBA/IOS/auto/appiosi/fonte/Mercadauto,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
